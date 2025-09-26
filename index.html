@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quantum Developer Day — Chicago 2025</title>
+  <meta name="description" content="Quantum Developer Day at The Chicago Quantum Summit — November 2, 2025 at Convene, Willis Tower. Hosted by qBraid and CQE." />
+  <meta name="theme-color" content="#8b5cf6" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Quantum Developer Day — Chicago 2025" />
+  <meta property="og:description" content="Hands-on quantum software demos, workshops, and industry talks. Nov 2, 2025 in Chicago." />
+  <meta property="og:image" content="https://qbraid-static.s3.us-east-1.amazonaws.com/events/Quantum+Developer+Day+(11).png" />
+  <meta property="og:url" content="https://www.quantumdeveloperday.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-start: #4f46e5; /* indigo */
+      --bg-end: #ec4899;   /* pink */
+      --text: #ffffff;
+      --muted: #e5e7eb;
+      --card: rgba(17, 17, 17, 0.75);
+      --border: rgba(255,255,255,0.12);
+      --brand: #a855f7; /* violet */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, var(--bg-start), var(--bg-end)) fixed;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+    /* Hero */
+    .hero { padding: 64px 0 32px; text-align: center; }
+    .logo-row { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 28px; }
+    .qb-logo { width: 56px; height: 56px; border-radius: 50%; background: radial-gradient(closest-side, #7c3aed, #db2777); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+    .brand { font-weight: 700; font-size: 2rem; letter-spacing: -0.02em; }
+
+    .title { font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(2.4rem, 6vw, 4.5rem); text-shadow: 0 6px 30px rgba(0,0,0,0.25); }
+    .subtitle { margin-top: 12px; color: var(--muted); font-weight: 400; font-size: 1.05rem; }
+    .meta { margin-top: 18px; font-weight: 500; }
+    .meta strong { color: #fff; }
+
+    .poster { width: min(920px, 92vw); height: auto; border-radius: 12px; border: 1px solid var(--border); margin: 28px auto 0; display: block; box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      background: rgba(255,255,255,0.06); }
+
+    /* CTA */
+    .cta-row { margin-top: 28px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn { appearance: none; border: 0; border-radius: 10px; padding: 14px 22px; font-weight: 600; cursor: pointer; text-decoration: none; transition: transform .06s ease, box-shadow .2s ease, background .2s ease; }
+    .btn-primary { background: #8b5cf6; color: #fff; box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+    .btn-primary:hover { background: #7c3aed; transform: translateY(-1px); }
+    .btn-ghost { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid var(--border); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.18); transform: translateY(-1px); }
+
+    /* Cards */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin: 44px auto; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px; backdrop-filter: blur(8px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
+    .card h3 { font-size: 1.15rem; margin-bottom: 8px; font-weight: 600; }
+    .card p { color: #e5e7eb; opacity: 0.95; }
+    .muted { color: #e5e7eb; opacity: 0.8; font-size: .95rem; }
+
+    /* Schedule */
+    .section { margin: 56px auto; }
+    .section h2 { text-align: center; font-weight: 700; font-size: 2rem; letter-spacing: -0.01em; }
+    .schedule { max-width: 900px; margin: 26px auto 0; display: grid; gap: 14px; }
+    .slot { display: grid; grid-template-columns: 140px 1fr; gap: 14px; align-items: start; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+    .time { background: rgba(255,255,255,0.08); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; text-align: center; font-weight: 600; color: #fff; }
+    .slot h4 { margin: 2px 0 6px; font-size: 1.05rem; }
+    .slot p { color: #e5e7eb; opacity: 0.9; font-size: .95rem; }
+
+    /* Footer */
+    footer { text-align: center; color: #f3f4f6; opacity: .9; padding: 40px 0; }
+    footer a { color: #fff; text-underline-offset: 2px; }
+
+    @media (max-width: 640px) { .slot { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero" id="top">
+      <div class="logo-row" aria-hidden="true">
+        <div class="qb-logo"></div>
+        <div class="brand">qBraid</div>
+      </div>
+      <h1 class="title">Quantum Developer Day</h1>
+      <p class="subtitle">at <a href="https://chicagoquantum.org/event/2025-chicago-quantum-summit" target="_blank" rel="noopener noreferrer" style="color:#fff; font-weight:600; text-decoration: underline; text-underline-offset: 3px;">The Chicago Quantum Summit</a></p>
+      <p class="meta"><strong>Sunday, November 2, 2025</strong> • 1:00–6:00 PM CT • Chicago, IL</p>
+
+      <img class="poster" src="https://qbraid-static.s3.us-east-1.amazonaws.com/events/Quantum+Developer+Day+(11).png" alt="Quantum Developer Day poster" loading="lazy" decoding="async" />
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://lu.ma/event/manage/evt-rTkCZzxvF2TZyPE" target="_blank" rel="noopener noreferrer">Register Now</a>
+        <a class="btn btn-ghost" href="#schedule">View Schedule</a>
+      </div>
+
+      <div class="grid" aria-label="Event quick facts">
+        <article class="card">
+          <h3>📅 Date & Time</h3>
+          <p><strong>Sunday, Nov 2, 2025</strong><br />1:00 PM – 6:00 PM CT</p>
+        </article>
+        <article class="card">
+          <h3>📍 Venue</h3>
+          <p><a href="https://convene.com/locations/chicago/233-south-wacker-drive/" target="_blank" rel="noopener noreferrer" style="color:#fff; font-weight:600; text-decoration: underline; text-underline-offset: 2px;">Convene at Willis Tower</a><br />233 S Wacker Dr, Chicago, IL 60606</p>
+        </article>
+        <article class="card">
+          <h3>👥 Audience</h3>
+          <p>Enterprise leaders, quantum companies, technical professionals, PIs, postdocs, senior graduate students</p>
+          <p class="muted">Not open to students or early‑career trainees</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="schedule" class="section">
+      <h2>Event Schedule</h2>
+      <div class="schedule" role="list">
+        <div class="slot" role="listitem">
+          <div class="time">1:00–1:30 PM</div>
+          <div>
+            <h4>Registration & Networking Coffee</h4>
+            <p>Arrival, sponsor booths open, informal networking</p>
+          </div>
+        </div>
+        <div class="slot" role="listitem">
+          <div class="time">1:30–1:40 PM</div>
+          <div>
+            <h4>Opening Remarks & Sponsor Recognition</h4>
+            <p>Welcome from Chicago Quantum Exchange, event focus, sponsor acknowledgments</p>
+          </div>
+        </div>
+        <div class="slot" role="listitem">
+          <div class="time">1:40–2:00 PM</div>
+          <div>
+            <h4>Keynote: Building the Operating System for Quantum Computing</h4>
+            <p>Updates on quantum software tools and qBraid by Kanav Setia</p>
+          </div>
+        </div>
+        <div class="slot" role="listitem">
+          <div class="time">2:00–3:15 PM</div>
+          <div>
+            <h4>Enterprise Use Case Lightning Talks</h4>
+            <p>Five technical presentations from partner companies</p>
+          </div>
+        </div>
+        <div class="slot" role="listitem">
+          <div class="time">3:15–3:30 PM</div>
+          <div>
+            <h4>Break, Networking, & Demo Booths</h4>
+            <p>Refreshments and demos</p>
+          </div>
+        </div>
+        <div class="slot" role="listitem">
+          <div class="time">3:30–4:15 PM</div>
+          <div>
+            <h4>Technical Workshops</h4>
+            <p>Hands‑on, code‑driven sessions led by sponsors and partners</p>
+          </div>
+        </div>
+        <div class="slot" role="listitem">
+          <div class="time">4:15–5:00 PM</div>
+          <div>
+            <h4>Panel: Scaling Quantum Software in Industry</h4>
+            <p>Enterprise users and quantum software leaders</p>
+          </div>
+        </div>
+        <div class="slot" role="listitem">
+          <div class="time">5:00–6:00 PM</div>
+          <div>
+            <h4>Networking & Dinner Session hosted by qBraid</h4>
+            <p>In‑depth networking and discussion over dinner</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid">
+        <article class="card">
+          <h3>Contact</h3>
+          <p><strong>Brian Pearson</strong><br/>Head of Business Development, qBraid<br/>
+            <a href="mailto:brian.pearson@qBraid.com" style="color:#fff; text-decoration: underline; text-underline-offset: 2px;">brian.pearson@qBraid.com</a></p>
+        </article>
+        <article class="card">
+          <h3>About the Event</h3>
+          <p>Quantum Developer Day moves beyond hype to real‑world impact with live demos, practical workshops, and conversations with the teams building quantum software.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 qBraid • <a href="#top">Back to top</a>
+    </footer>
+  </main>
+
+  <script>
+    // smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (id.length > 1) {
+          e.preventDefault();
+          document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+

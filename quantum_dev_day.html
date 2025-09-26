@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Developer Day at The Chicago Quantum Summit</title>
+    <style>
+        /* Import fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 5rem;
+            padding-top: 1rem;
+        }
+        
+        .event-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+        
+        .event-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: #8b5cf6;
+            border-radius: 1px;
+        }
+        
+        .event-subtitle {
+            font-size: 1.1rem;
+            color: #888888;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+        .event-subtitle a {
+            color: #8b5cf6;
+            text-decoration: none;
+        }
+        .event-subtitle a:hover {
+            text-decoration: underline;
+        }
+
+        /* Poster image under header */
+        .poster-image {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            display: block;
+            margin: 1.5rem auto 0;
+            border-radius: 8px;
+            border: 1px solid #222222;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+        }
+        
+        /* Event info cards */
+        .event-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 0 auto 4rem;
+            justify-content: center;
+            align-items: stretch;
+            max-width: 1000px;
+        }
+        
+        .info-card {
+            background: #111111;
+            border: 1px solid #222222;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.2s ease;
+        }
+        
+        .info-card:hover {
+            background: #151515;
+            border-color: #8b5cf6;
+        }
+        
+        .info-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .info-card p {
+            color: #bbbbbb;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-highlight {
+            color: #ffffff;
+            font-weight: 500;
+        }
+        
+        /* Schedule section */
+        .schedule {
+            margin: 0 auto 4rem;
+            max-width: 900px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+        }
+        
+        .schedule-item {
+            background: #111111;
+            border: 1px solid #222222;
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 0 auto 1.25rem;
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+            transition: background 0.2s ease;
+        }
+        
+        .schedule-item:hover {
+            background: #151515;
+        }
+        
+        .schedule-time {
+            background: #1a1a1a;
+            border: 1px solid #333333;
+            color: #cccccc;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            min-width: 140px;
+            text-align: center;
+            transition: all 0.2s ease;
+            margin-bottom: 0.25rem;
+        }
+        
+        .schedule-item:hover .schedule-time {
+            border-color: #8b5cf6;
+            color: #ffffff;
+        }
+        
+        .schedule-content h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .schedule-content p {
+            color: #999999;
+            font-size: 0.95rem;
+        }
+        
+        /* CTA section */
+        .cta {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #8b5cf6;
+            color: #ffffff;
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            margin: 0 1rem 1rem 0;
+        }
+        
+        .cta-button:hover {
+            background: #7c3aed;
+        }
+        
+
+        /* Quote section */
+        .quote {
+            background: #111111;
+            border-left: 3px solid #8b5cf6;
+            padding: 2rem;
+            border-radius: 0 6px 6px 0;
+            margin: 3rem auto;
+            max-width: 900px;
+            font-style: italic;
+            font-size: 1rem;
+            color: #cccccc;
+            font-weight: 300;
+        }
+        
+        .quote-author {
+            font-style: normal;
+            font-weight: 500;
+            color: #ffffff;
+            margin-top: 1rem;
+        }
+        
+        /* Contact section */
+        .contact {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem auto 0;
+            max-width: 900px;
+            justify-content: center;
+        }
+        
+        .contact-card {
+            background: #111111;
+            border: 1px solid #222222;
+            border-radius: 6px;
+            padding: 2rem;
+            text-align: center;
+            width: 75%;
+            margin: 0 auto;
+        }
+        
+        .contact-card h4 {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-card a {
+            color: #bbbbbb;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .contact-card a:hover {
+            color: #8b5cf6;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .schedule-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .schedule-time {
+                min-width: auto;
+                width: fit-content;
+            }
+
+            .contact-card {
+                width: 100%;
+            }
+            
+            .cta-button {
+                display: block;
+                margin: 1rem auto;
+                width: fit-content;
+            }
+        }
+        
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.4s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header fade-in">
+            <h1 class="event-title">Quantum Developer Day</h1>
+            <p class="event-subtitle">at <a href="https://chicagoquantum.org/event/2025-chicago-quantum-summit" target="_blank" rel="noopener noreferrer">The Chicago Quantum Summit</a></p>
+            <p style="color: #888888; font-size: 1rem;">Hosted by <span class="info-highlight">qBraid</span> and <span class="info-highlight">Chicago Quantum Exchange</span></p>
+            <img src="https://qbraid-static.s3.us-east-1.amazonaws.com/events/Quantum+Developer+Day+(11).png" alt="Quantum Developer Day Poster" class="poster-image fade-in" loading="lazy" decoding="async" />
+        </header>
+
+        <!-- Event Info -->
+        <section class="event-info">
+            <div class="info-card slide-in">
+                <h3>📅 Date & Time</h3>
+                <p><span class="info-highlight">Sunday, November 2, 2025</span></p>
+                <p>1:00 PM to 6:00 PM CT</p>
+                <p><em>A quantum leap in your weekend plans</em></p>
+            </div>
+            
+            <div class="info-card slide-in" style="animation-delay: 0.1s;">
+                <h3>📍 Venue</h3>
+                <p><a href="https://convene.com/locations/chicago/233-south-wacker-drive/" target="_blank" rel="noopener noreferrer" class="info-highlight">Convene at Willis Tower</a></p>
+                <p>233 S Wacker Dr</p>
+                <p>Chicago, IL 60606</p>
+                <p><a href="https://convene.com/locations/chicago/233-south-wacker-drive/" target="_blank" rel="noopener noreferrer" class="info-highlight" style="margin-top: 0.75rem;">Nearby Parking</a></p>
+            </div>
+            
+            <div class="info-card slide-in" style="animation-delay: 0.2s;">
+                <h3>👥 Audience</h3>
+                <p>Enterprise leaders, quantum companies, technical professionals, PIs, postdocs, senior graduate students</p>
+                <p><em>Not open to students or early-career trainees</em></p>
+            </div>
+        </section>
+
+                <!-- Quote -->
+        <div class="quote fade-in">
+            "Quantum Developer Day is about moving beyond hype and into real-world impact. We're bringing together the companies actually building quantum software and the enterprise leaders who will deploy it. It's a hands-on, technical forum where demos speak louder than decks."
+            <div class="quote-author">— Ryan Hill, CTO of qBraid</div>
+        </div>
+        
+        <!-- Schedule -->
+        <section class="schedule">
+            <h2 class="section-title fade-in">Event Schedule</h2>
+            
+            <div class="schedule-item slide-in">
+                <div class="schedule-time">1:00–1:30 PM</div>
+                <div class="schedule-content">
+                    <h4>Registration & Networking Coffee</h4>
+                    <p>Arrival, sponsor booths open, informal networking</p>
+                </div>
+            </div>
+            
+            <div class="schedule-item slide-in" style="animation-delay: 0.1s;">
+                <div class="schedule-time">1:30–1:40 PM</div>
+                <div class="schedule-content">
+                    <h4>Opening Remarks & Sponsor Recognition</h4>
+                    <p>Welcome from Chicago Quantum Exchange, outline of Quantum Developer Day focus, sponsor acknowledgments</p>
+                </div>
+            </div>
+            
+            <div class="schedule-item slide-in" style="animation-delay: 0.2s;">
+                <div class="schedule-time">1:40–2:00 PM</div>
+                <div class="schedule-content">
+                    <h4>Keynote: Building the Operating System for Quantum Computing</h4>
+                    <p>Updates on the state of quantum software tools and qBraid by Kanav Setia </p>
+                </div>
+            </div>
+            
+            <div class="schedule-item slide-in" style="animation-delay: 0.3s;">
+                <div class="schedule-time">2:00–3:15 PM</div>
+                <div class="schedule-content">
+                    <h4>Enterprise Use Case Lightning Talks</h4>
+                    <p>5 lightning technical presentations from Xanadu, IBM, Sponsor 1, Sponsor 2, Sponsor 3</p>
+                </div>
+            </div>
+            
+            <div class="schedule-item slide-in" style="animation-delay: 0.4s;">
+                <div class="schedule-time">3:15–3:30 PM</div>
+                <div class="schedule-content">
+                    <h4>Break, Networking, & Demo Booths</h4>
+                    <p>Break</p>
+                </div>
+            </div>
+            
+            <div class="schedule-item slide-in" style="animation-delay: 0.5s;">
+                <div class="schedule-time">3:30–4:15 PM</div>
+                <div class="schedule-content">
+                    <h4>Technical Workshops</h4>
+                    <p>3 Hands-on, code-driven sessions led by sponsors and partners</p>
+                </div>
+            </div>
+            
+            <div class="schedule-item slide-in" style="animation-delay: 0.6s;">
+                <div class="schedule-time">4:15–5:00 PM</div>
+                <div class="schedule-content">
+                    <h4>Panel: Scaling Quantum Software in Industry</h4>
+                    <p>Panel with enterprise users and quantum software leaders</p>
+                </div>
+            </div>
+            
+            <div class="schedule-item slide-in" style="animation-delay: 0.7s;">
+                <div class="schedule-time">5:00–6:00 PM</div>
+                <div class="schedule-content">
+                    <h4>Networking & Dinner Session hosted by qBraid</h4>
+                    <p>In-depth networking and discussion over dinner</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta fade-in">
+            <a href="https://lu.ma/event/manage/evt-rTkCZzxvF2TZyPE" class="cta-button" target="_blank" rel="noopener noreferrer">Register Now</a>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact">
+            <div class="contact-card fade-in" style="animation-delay: 0.1s;">
+                <h4>General Information</h4>
+                <p><strong>Brian Pearson</strong><br>Head of Business Development, qBraid</p>
+                <p><a href="mailto:brian.pearson@qBraid.com">brian.pearson@qBraid.com</a></p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.fade-in, .slide-in');
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
