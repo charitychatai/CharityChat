@@ -20,6 +20,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-start: #4f46e5; /* indigo */
@@ -54,18 +56,21 @@
     .nav-ticket:hover { background: #7c3aed; }
 
     /* Hero */
-    .hero { padding: 64px 0 32px; text-align: center; }
-    .logo-row { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 28px; }
+    .hero { padding: 64px 0 260px; text-align: center; position: relative; }
+    .logo-row { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 32px 0 28px; }
     .hero-logo { height: 60px; width: auto; display: block; filter: drop-shadow(0 10px 24px rgba(0,0,0,0.25)); }
     .brand { font-weight: 700; font-size: 1.625rem; letter-spacing: -0.02em; }
 
-    .title { font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(2.4rem, 6vw, 4.5rem); text-shadow: 0 6px 30px rgba(0,0,0,0.25); }
+    .title { font-family: 'Nunito Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(2.4rem, 6vw, 4.5rem); text-shadow: 0 6px 30px rgba(0,0,0,0.25); }
     .subtitle { margin-top: 12px; color: var(--muted); font-weight: 400; font-size: 1.05rem; }
     .meta { margin-top: 18px; font-weight: 500; }
     .meta strong { color: #fff; }
 
     .poster { width: min(920px, 92vw); height: auto; border-radius: 12px; border: 1px solid var(--border); margin: 28px auto 0; display: block; box-shadow: 0 20px 60px rgba(0,0,0,0.35);
       background: rgba(255,255,255,0.06); }
+
+    /* Skyline background at bottom of hero */
+    .skyline { position: absolute; left: 0; right: 0; bottom: 0; height: 220px; background-image: url('assets/city-outline.png'); background-repeat: no-repeat; background-position: center bottom; background-size: contain; opacity: 0.9; pointer-events: none; }
 
     /* CTA */
     .cta-row { margin-top: 28px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
@@ -98,7 +103,7 @@
     footer { text-align: center; color: #f3f4f6; opacity: .9; padding: 40px 0; }
     footer a { color: #fff; text-underline-offset: 2px; }
 
-    @media (max-width: 640px) { .slot { grid-template-columns: 1fr; } .hero-logo { height: 48px; } }
+    @media (max-width: 640px) { .slot { grid-template-columns: 1fr; } .hero-logo { height: 48px; } .hero { padding-bottom: 180px; } .skyline { height: 140px; } }
 
     /* a11y */
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
@@ -108,13 +113,13 @@
   <nav class="nav" role="navigation" aria-label="Primary">
     <div class="nav-inner">
       <a href="#top" class="nav-brand">
-        <img class="nav-logo" src="assets/qbraid-logo.png" alt="qBraid logo" />
         <span>QDD25</span>
       </a>
       <div class="nav-links">
         <a class="nav-link" href="https://lu.ma/event/manage/evt-rTkCZzxvF2TZyPE" target="_blank" rel="noopener noreferrer">Registration</a>
         <a class="nav-link" href="#schedule">Schedule</a>
         <a class="nav-link" href="#accommodations">Accommodations</a>
+        <a class="nav-link" href="#" aria-disabled="true" onclick="event.preventDefault();">LiveStream (TBD)</a>
         <a class="nav-link" href="#contact">Contact</a>
         <a class="nav-ticket" href="https://lu.ma/event/manage/evt-rTkCZzxvF2TZyPE" target="_blank" rel="noopener noreferrer">Register</a>
       </div>
@@ -122,20 +127,17 @@
   </nav>
   <main class="container">
     <section class="hero" id="top">
-      <div class="logo-row" aria-hidden="true">
-        <img class="hero-logo" src="assets/qbraid-logo.png" alt="qBraid logo" />
-        <div class="brand">qBraid</div>
-      </div>
       <h1 class="title">Quantum Developer Day</h1>
+      <div class="logo-row">
+        <a href="https://www.qbraid.com" target="_blank" rel="noopener noreferrer">
+          <img class="hero-logo" src="assets/qbraid-logo.png" alt="qBraid logo" />
+        </a>
+      </div>
+      <div class="skyline" aria-hidden="true"></div>
       <p class="subtitle">at <a href="https://chicagoquantum.org/event/2025-chicago-quantum-summit" target="_blank" rel="noopener noreferrer" style="color:#fff; font-weight:600; text-decoration: underline; text-underline-offset: 3px;">The Chicago Quantum Summit</a></p>
       <p class="meta"><strong>Sunday, November 2, 2025</strong> • 1:00–6:00 PM CT • Chicago, IL</p>
 
-      <img class="poster" src="https://qbraid-static.s3.us-east-1.amazonaws.com/events/Quantum+Developer+Day+(11).png" alt="Quantum Developer Day poster" loading="lazy" decoding="async" />
-
-      <div class="cta-row">
-        <a class="btn btn-primary" href="https://lu.ma/event/manage/evt-rTkCZzxvF2TZyPE" target="_blank" rel="noopener noreferrer">Register Now</a>
-        <a class="btn btn-ghost" href="#schedule">View Schedule</a>
-      </div>
+      <img class="poster" src="Quantum%20Developer%20Day%20(9).png" alt="Quantum Developer Day poster" loading="lazy" decoding="async" />
 
       <div class="grid" aria-label="Event quick facts">
         <article class="card">
@@ -148,8 +150,13 @@
         </article>
         <article class="card">
           <h3>👥 Audience</h3>
-          <p>Enterprise leaders, quantum companies, technical professionals, PIs, postdocs, senior graduate students</p>
-          <p class="muted">Not open to students or early‑career trainees</p>
+          <p>Designed for:</p>
+          <ul class="list">
+            <li>Enterprise leaders and technical decision‑makers</li>
+            <li>Teams at quantum software and hardware companies</li>
+            <li>Principal investigators, postdocs, and senior graduate students</li>
+          </ul>
+          <p class="muted">Note: Not open to undergraduates or early‑career trainees.</p>
         </article>
       </div>
     </section>
@@ -228,7 +235,6 @@
             <li>Hyatt Centric The Loop</li>
             <li>Hilton Garden Inn Central Loop</li>
           </ul>
-          <p class="muted">Tip: Book early—Chicago Quantum Summit week fills up quickly.</p>
         </article>
         <article class="card">
           <h3>Transit & Parking</h3>
