@@ -47,7 +47,7 @@
     /* Nav */
     .nav { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(160%) blur(8px); background: rgba(0,0,0,0.25); border-bottom: 1px solid var(--border); }
     .nav-inner { max-width: 1100px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
-    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -0.02em; color: #fff; text-decoration: none; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -0.02em; color: #fff; text-decoration: none; font-size: 1.25rem; }
     .nav-logo { height: 28px; width: auto; display: block; }
     .nav-links { display: flex; align-items: center; gap: 18px; }
     .nav-link { color: #fff; text-decoration: none; font-weight: 600; opacity: .9; }
@@ -56,12 +56,12 @@
     .nav-ticket:hover { background: #7c3aed; }
 
     /* Hero */
-    .hero { padding: 64px 0 260px; text-align: center; position: relative; }
+    .hero { padding: 64px 0 160px; text-align: center; position: relative; }
     .logo-row { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 32px 0 28px; }
     .hero-logo { height: 60px; width: auto; display: block; filter: drop-shadow(0 10px 24px rgba(0,0,0,0.25)); }
     .brand { font-weight: 700; font-size: 1.625rem; letter-spacing: -0.02em; }
 
-    .title { font-family: 'Nunito Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(2.4rem, 6vw, 4.5rem); text-shadow: 0 6px 30px rgba(0,0,0,0.25); }
+    .title { font-family: inherit; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(2.4rem, 6vw, 4.5rem); text-shadow: 0 6px 30px rgba(0,0,0,0.25); background: var(--update_card_color, linear-gradient(101deg, #FFFFFF 0%, #EEE9FF 100%)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; backdrop-filter: blur(2px); }
     .subtitle { margin-top: 12px; color: var(--muted); font-weight: 400; font-size: 1.05rem; }
     .meta { margin-top: 18px; font-weight: 500; }
     .meta strong { color: #fff; }
@@ -70,7 +70,7 @@
       background: rgba(255,255,255,0.06); }
 
     /* Skyline background at bottom of hero */
-    .skyline { position: absolute; left: 0; right: 0; bottom: 0; height: 220px; background-image: url('assets/city-outline.png'); background-repeat: no-repeat; background-position: center bottom; background-size: contain; opacity: 0.9; pointer-events: none; }
+    .skyline { position: absolute; left: 0; right: 0; bottom: 0; height: 180px; background-image: url('assets/city-outline.png'); background-repeat: no-repeat; background-position: center bottom; background-size: contain; opacity: 0.9; pointer-events: none; }
 
     /* CTA */
     .cta-row { margin-top: 28px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
@@ -92,6 +92,8 @@
 
     /* Schedule */
     .section { margin: 56px auto; scroll-margin-top: 80px; }
+    #schedule { margin-top: 16px; }
+    #sponsors { margin-top: 24px; }
     .section h2 { text-align: center; font-weight: 700; font-size: 2rem; letter-spacing: -0.01em; }
     .schedule { max-width: 900px; margin: 26px auto 0; display: grid; gap: 14px; }
     .slot { display: grid; grid-template-columns: 140px 1fr; gap: 14px; align-items: start; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
@@ -99,11 +101,22 @@
     .slot h4 { margin: 2px 0 6px; font-size: 1.05rem; }
     .slot p { color: #e5e7eb; opacity: 0.9; font-size: .95rem; }
 
+    /* Sponsors */
+    .sponsors .tier { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px auto; max-width: 1000px; }
+    .tier-title { text-align: center; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.01em; }
+    .tier-title.diamond { color: #ffffff; }
+    .tier-title.gold { color: #fde68a; }
+    .tier-title.silver { color: #e5e7eb; }
+    .logo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; align-items: center; justify-items: center; }
+    .logo-slot { width: 100%; min-height: 90px; border: 2px dashed rgba(0,0,0,0.15); border-radius: 10px; background: #ffffff; display: flex; align-items: center; justify-content: center; color: #111111; opacity: 1; font-weight: 600; }
+    .logo-img { max-width: 100%; max-height: 90px; object-fit: contain; display: block; }
+    .contact-link { color: #111111; text-decoration: underline; text-underline-offset: 2px; font-weight: 700; }
+
     /* Footer */
     footer { text-align: center; color: #f3f4f6; opacity: .9; padding: 40px 0; }
     footer a { color: #fff; text-underline-offset: 2px; }
 
-    @media (max-width: 640px) { .slot { grid-template-columns: 1fr; } .hero-logo { height: 48px; } .hero { padding-bottom: 180px; } .skyline { height: 140px; } }
+    @media (max-width: 640px) { .slot { grid-template-columns: 1fr; } .hero-logo { height: 48px; } .hero { padding-bottom: 120px; } .skyline { height: 120px; } }
 
     /* a11y */
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
@@ -119,7 +132,7 @@
         <a class="nav-link" href="https://lu.ma/event/manage/evt-rTkCZzxvF2TZyPE" target="_blank" rel="noopener noreferrer">Registration</a>
         <a class="nav-link" href="#schedule">Schedule</a>
         <a class="nav-link" href="#accommodations">Accommodations</a>
-        <a class="nav-link" href="#" aria-disabled="true" onclick="event.preventDefault();">LiveStream (TBD)</a>
+        <a class="nav-link" href="#" aria-disabled="true" onclick="event.preventDefault();">LiveStream</a>
         <a class="nav-link" href="#contact">Contact</a>
         <a class="nav-ticket" href="https://lu.ma/event/manage/evt-rTkCZzxvF2TZyPE" target="_blank" rel="noopener noreferrer">Register</a>
       </div>
@@ -134,15 +147,14 @@
         </a>
       </div>
       <div class="skyline" aria-hidden="true"></div>
-      <p class="subtitle">at <a href="https://chicagoquantum.org/event/2025-chicago-quantum-summit" target="_blank" rel="noopener noreferrer" style="color:#fff; font-weight:600; text-decoration: underline; text-underline-offset: 3px;">The Chicago Quantum Summit</a></p>
-      <p class="meta"><strong>Sunday, November 2, 2025</strong> • 1:00–6:00 PM CT • Chicago, IL</p>
 
-      <img class="poster" src="Quantum%20Developer%20Day%20(9).png" alt="Quantum Developer Day poster" loading="lazy" decoding="async" />
+      <img class="poster" src="assets/poster.png" alt="Quantum Developer Day poster" loading="lazy" decoding="async" />
 
       <div class="grid" aria-label="Event quick facts">
         <article class="card">
           <h3>📅 Date & Time</h3>
           <p><strong>Sunday, Nov 2, 2025</strong><br />1:00 PM – 6:00 PM CT</p>
+          <p>at <a href="https://chicagoquantum.org/event/2025-chicago-quantum-summit" target="_blank" rel="noopener noreferrer" style="color:#fff; font-weight:600; text-decoration: underline; text-underline-offset: 2px;">The Chicago Quantum Summit</a></p>
         </article>
         <article class="card">
           <h3>📍 Venue</h3>
@@ -150,14 +162,37 @@
         </article>
         <article class="card">
           <h3>👥 Audience</h3>
-          <p>Designed for:</p>
-          <ul class="list">
-            <li>Enterprise leaders and technical decision‑makers</li>
-            <li>Teams at quantum software and hardware companies</li>
-            <li>Principal investigators, postdocs, and senior graduate students</li>
-          </ul>
-          <p class="muted">Note: Not open to undergraduates or early‑career trainees.</p>
+          <p>Enterprise leaders, technical decision-makers, quantum company teams, and advanced researchers; not open to undergraduates or early‑career trainees.</p>
         </article>
+      </div>
+    </section>
+
+    <!-- Sponsors -->
+    <section id="sponsors" class="section sponsors">
+      <h2>Sponsors</h2>
+      <div class="tier">
+        <h3 class="tier-title diamond">Production Sponsors</h3>
+        <div class="logo-grid">
+          <div class="logo-slot" aria-label="Xanadu logo"><img class="logo-img" src="assets/xanadu.png" alt="Xanadu" /></div>
+          <div class="logo-slot" aria-label="Add production sponsor logo"><a class="contact-link" href="mailto:brian.pearson@qBraid.com">Contact</a></div>
+        </div>
+      </div>
+      <div class="tier">
+        <h3 class="tier-title gold">Staging Sponsors</h3>
+        <div class="logo-grid">
+          <div class="logo-slot" aria-label="Quantum Machines logo"><img class="logo-img" src="assets/quantum-machines.png" alt="Quantum Machines" /></div>
+          <div class="logo-slot" aria-label="Add staging sponsor logo"><a class="contact-link" href="mailto:brian.pearson@qBraid.com">Contact</a></div>
+          <div class="logo-slot" aria-label="Add staging sponsor logo"><a class="contact-link" href="mailto:brian.pearson@qBraid.com">Contact</a></div>
+        </div>
+      </div>
+      <div class="tier">
+        <h3 class="tier-title silver">Dev Sponsors</h3>
+        <div class="logo-grid">
+          <div class="logo-slot" aria-label="Chicago Quantum Exchange logo"><img class="logo-img" src="assets/cqe.png" alt="Chicago Quantum Exchange" /></div>
+          <div class="logo-slot" aria-label="Add dev sponsor logo"><a class="contact-link" href="mailto:brian.pearson@qBraid.com">Contact</a></div>
+          <div class="logo-slot" aria-label="Add dev sponsor logo"><a class="contact-link" href="mailto:brian.pearson@qBraid.com">Contact</a></div>
+          <div class="logo-slot" aria-label="Add dev sponsor logo"><a class="contact-link" href="mailto:brian.pearson@qBraid.com">Contact</a></div>
+        </div>
       </div>
     </section>
 
