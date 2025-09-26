@@ -81,6 +81,9 @@
     .card h3 { font-size: 1.15rem; margin-bottom: 8px; font-weight: 600; }
     .card p { color: #e5e7eb; opacity: 0.95; }
     .muted { color: #e5e7eb; opacity: 0.8; font-size: .95rem; }
+    .list { list-style: none; padding-left: 0; margin: 10px 0 0; }
+    .list li { margin: 6px 0; padding-left: 16px; position: relative; }
+    .list li::before { content: '•'; position: absolute; left: 0; color: #ffffff; opacity: 0.85; }
 
     /* Schedule */
     .section { margin: 56px auto; scroll-margin-top: 80px; }
@@ -106,14 +109,14 @@
     <div class="nav-inner">
       <a href="#top" class="nav-brand">
         <img class="nav-logo" src="assets/qbraid-logo.png" alt="qBraid logo" />
-        <span>Quantum Developer Day</span>
+        <span>QDD25</span>
       </a>
       <div class="nav-links">
-        <a class="nav-link" href="https://lu.ma/event/manage/evt-rTkCZzxvF2TZyPE" target="_blank" rel="noopener noreferrer">Tickets</a>
-        <a class="nav-link" href="#schedule">Agenda</a>
+        <a class="nav-link" href="https://lu.ma/event/manage/evt-rTkCZzxvF2TZyPE" target="_blank" rel="noopener noreferrer">Registration</a>
+        <a class="nav-link" href="#schedule">Schedule</a>
         <a class="nav-link" href="#accommodations">Accommodations</a>
         <a class="nav-link" href="#contact">Contact</a>
-        <a class="nav-ticket" href="https://lu.ma/event/manage/evt-rTkCZzxvF2TZyPE" target="_blank" rel="noopener noreferrer">Get Tickets</a>
+        <a class="nav-ticket" href="https://lu.ma/event/manage/evt-rTkCZzxvF2TZyPE" target="_blank" rel="noopener noreferrer">Register</a>
       </div>
     </div>
   </nav>
@@ -152,7 +155,7 @@
     </section>
 
     <section id="schedule" class="section">
-      <h2>Event Schedule</h2>
+      <h2>Schedule</h2>
       <div class="schedule" role="list">
         <div class="slot" role="listitem">
           <div class="time">1:00–1:30 PM</div>
@@ -218,13 +221,25 @@
       <div class="grid">
         <article class="card">
           <h3>Nearby Hotels</h3>
-          <p>Convene at Willis Tower is centrally located in the Loop. Popular nearby options include JW Marriott Chicago, The Langham Chicago, Hyatt Centric The Loop, and Hilton Garden Inn Central Loop.</p>
+          <p>Convene at Willis Tower is centrally located in the Loop. Nearby options:</p>
+          <ul class="list">
+            <li>JW Marriott Chicago</li>
+            <li>The Langham, Chicago</li>
+            <li>Hyatt Centric The Loop</li>
+            <li>Hilton Garden Inn Central Loop</li>
+          </ul>
           <p class="muted">Tip: Book early—Chicago Quantum Summit week fills up quickly.</p>
         </article>
         <article class="card">
           <h3>Transit & Parking</h3>
-          <p>Easy access via CTA and Metra. Paid garages available in Willis Tower and surrounding blocks.</p>
-          <p><a href="https://convene.com/locations/chicago/233-south-wacker-drive/" target="_blank" rel="noopener noreferrer" style="color:#fff; text-decoration: underline; text-underline-offset: 2px;">Venue details & parking</a></p>
+          <p>Getting there:</p>
+          <ul class="list">
+            <li>Easy access via CTA and Metra</li>
+            <li>Paid garages at Willis Tower and surrounding blocks</li>
+            <li>Chicago O'Hare International Airport (ORD)</li>
+            <li>Chicago Midway International Airport (MDW)</li>
+            <li><a href="https://convene.com/locations/chicago/233-south-wacker-drive/" target="_blank" rel="noopener noreferrer" style="color:#fff; text-decoration: underline; text-underline-offset: 2px;">Venue details & parking</a></li>
+          </ul>
         </article>
       </div>
     </section>
