@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>qBraid OS - The Quantum Operating System</title>
+  <meta name="description" content="qBraid OS provides cloud access to quantum devices through qBraid Runtime, SDK, and Gateway. Built for quantum hardware companies and component manufacturers.">
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #46096F;
+      --primary-dark: #3a0759;
+      --primary-light: #6b1aa3;
+      --secondary: #df0982;
+      --dark: #0f0f0f;
+      --dark-card: #1a1a1a;
+      --dark-border: rgba(255, 255, 255, 0.1);
+      --text: #ffffff;
+      --text-muted: #a1a1aa;
+      --gradient: linear-gradient(135deg, #46096F 0%, #df0982 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      backdrop-filter: saturate(180%) blur(20px);
+      background: rgba(15, 15, 15, 0.8);
+      border-bottom: 1px solid var(--dark-border);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo img {
+      height: 32px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex: 1;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+    }
+
+    .nav-link.has-dropdown::after {
+      content: '▾';
+      font-size: 0.75rem;
+      transition: transform 0.2s;
+    }
+
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: calc(100% + 1rem);
+      left: 0;
+      background: rgba(26, 26, 26, 0.98);
+      backdrop-filter: saturate(180%) blur(20px);
+      border: 1px solid var(--dark-border);
+      border-radius: 0.75rem;
+      padding: 0.5rem;
+      min-width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    .nav-dropdown:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(70, 9, 111, 0.2);
+      color: var(--text);
+    }
+
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.625rem 1.25rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--dark-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+      box-shadow: 0 4px 20px rgba(70, 9, 111, 0.5);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(70, 9, 111, 0.7);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 120px;
+      padding-bottom: 60px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.5;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(70, 9, 111, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(223, 9, 130, 0.3) 0%, transparent 50%);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-large {
+      padding: 0.875rem 2rem;
+      font-size: 1.05rem;
+    }
+
+    /* Section */
+    .section {
+      padding: 6rem 2rem;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .section-description {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Components Grid */
+    .components-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo-marquee {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding: 1rem 0;
+    }
+
+    .logo-marquee::before,
+    .logo-marquee::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 120px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .logo-marquee::before {
+      left: 0;
+      background: linear-gradient(to right, #0f0f0f, rgba(15, 15, 15, 0));
+    }
+
+    .logo-marquee::after {
+      right: 0;
+      background: linear-gradient(to left, #0f0f0f, rgba(15, 15, 15, 0));
+    }
+
+    .logo-track {
+      display: flex;
+      gap: 4rem;
+      animation: scroll 25s linear infinite;
+      width: max-content;
+      align-items: center;
+    }
+
+    .logo-track img {
+      height: 70px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .component-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .component-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .component-card:hover {
+      border-color: rgba(70, 9, 111, 0.6);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .component-card:hover::before {
+      opacity: 1;
+    }
+
+    .component-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--gradient);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.75rem;
+    }
+
+    .component-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .component-card p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .component-features {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .component-features li {
+      padding: 0.5rem 0;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .component-features li::before {
+      content: '→';
+      color: var(--primary-light);
+      font-weight: 700;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(70, 9, 111, 0.6);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gradient);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--gradient);
+      border-radius: 1.5rem;
+      padding: 4rem 2rem;
+      text-align: center;
+      max-width: 1400px;
+      margin: 4rem auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 500px;
+      height: 500px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section h2 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .btn-white:hover {
+      background: rgba(255, 255, 255, 0.95);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--dark-border);
+      padding: 4rem 2rem 2rem;
+      margin-top: 6rem;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand-logo {
+      height: 32px;
+      width: auto;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-column h4 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--dark-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-legal a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .footer-legal a:hover {
+      color: var(--text);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 4rem 1.5rem;
+      }
+
+      .components-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="qBraid Logo.png" alt="qBraid" />
+      </a>
+      
+      <div class="nav-links">
+        <div class="nav-dropdown">
+          <a href="#products" class="nav-link has-dropdown">Products</a>
+          <div class="dropdown-content">
+            <a href="qbraid-lab.html" class="dropdown-item">qBraid Lab</a>
+            <a href="qbraid-os.html" class="dropdown-item">qBraid OS</a>
+            <a href="https://qbook.qbraid.com/" class="dropdown-item">qBook</a>
+            <a href="pilots.html" class="dropdown-item">Pilots</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#solutions" class="nav-link has-dropdown">Solutions</a>
+          <div class="dropdown-content">
+            <a href="education.html" class="dropdown-item">Education</a>
+            <a href="research.html" class="dropdown-item">Research</a>
+            <a href="enterprise.html" class="dropdown-item">Enterprise</a>
+            <a href="quantum-companies.html" class="dropdown-item">Quantum Companies</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#resources" class="nav-link has-dropdown">Resources</a>
+          <div class="dropdown-content">
+            <a href="https://docs.qbraid.com/home/introduction" class="dropdown-item" target="_blank" rel="noopener">Documentation</a>
+            <a href="blog.html" class="dropdown-item">Blog</a>
+            <a href="about.html" class="dropdown-item">About</a>
+            <a href="https://discord.com/invite/9jpmpeEV65" class="dropdown-item" target="_blank" rel="noopener">Community</a>
+          </div>
+        </div>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="https://account.qbraid.com/" class="btn btn-secondary">Log In</a>
+        <a href="https://account.qbraid.com/" class="btn btn-primary">Start Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <h1>
+          <span class="gradient-text">qBraid OS</span><br/>
+          The Quantum Operating System
+        </h1>
+        <p class="hero-description">
+          Cloud infrastructure for quantum hardware companies. Provide seamless access to your quantum devices through qBraid Runtime, SDK, and Gateway.
+        </p>
+        <div class="hero-buttons">
+          <a href="contact.html" class="btn btn-primary btn-large">Partner With Us →</a>
+          <a href="https://docs.qbraid.com" class="btn btn-secondary btn-large" target="_blank">View Documentation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Components Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Complete Quantum Infrastructure Stack</h2>
+        <p class="section-description">
+          Built for quantum hardware companies and component manufacturers. Deploy your devices on qBraid's cloud platform and reach thousands of researchers and developers.
+        </p>
+      </div>
+
+      <div class="components-grid">
+        <div class="component-card">
+          <div class="component-icon">⚡</div>
+          <h3>qBraid Runtime</h3>
+          <p>
+            High-performance execution environment for quantum programs. Optimized job scheduling, queue management, and result retrieval for your quantum processors.
+          </p>
+          <ul class="component-features">
+            <li>Multi-backend job orchestration</li>
+            <li>Real-time status monitoring</li>
+            <li>Automatic result caching</li>
+            <li>Priority queue management</li>
+          </ul>
+        </div>
+
+        <div class="component-card">
+          <div class="component-icon">🔧</div>
+          <h3>qBraid SDK</h3>
+          <p>
+            Unified software development kit for quantum computing. Enable developers to write code once and deploy across multiple quantum frameworks and devices.
+          </p>
+          <ul class="component-features">
+            <li>Cross-framework transpilation</li>
+            <li>Device-agnostic API</li>
+            <li>Python-native interface</li>
+            <li>18+ quantum SDK support</li>
+          </ul>
+        </div>
+
+        <div class="component-card">
+          <div class="component-icon">🌐</div>
+          <h3>qBraid Gateway</h3>
+          <p>
+            Secure cloud gateway for quantum device connectivity. Expose your quantum hardware to the qBraid ecosystem with enterprise-grade security and compliance.
+          </p>
+          <ul class="component-features">
+            <li>API authentication & encryption</li>
+            <li>Usage analytics & monitoring</li>
+            <li>SOC 2 compliant access controls</li>
+            <li>Automatic scaling</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+      <div class="section-header">
+        <h2>See qBraid OS in Action</h2>
+        <p class="section-description">
+          Watch how quantum hardware companies leverage qBraid Runtime, SDK, and Gateway to deliver cloud-ready devices.
+        </p>
+      </div>
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 1.25rem; overflow: hidden; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45); border: 1px solid var(--dark-border);">
+        <iframe
+          src="https://www.youtube.com/embed/G5LPHRDExkc?autoplay=1&mute=1"
+          title="qBraid OS overview"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Logos -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Trusted by Leading Quantum Hardware Teams</h2>
+        <p class="section-description">
+          qBraid OS powers devices from neutral atom systems to superconducting processors, giving hardware partners instant access to thousands of users.
+        </p>
+      </div>
+      <div class="logo-marquee">
+        <div class="logo-track">
+          <img src="logos/quera.png" alt="QuEra">
+          <img src="logos/equal1.png" alt="Equal1">
+          <img src="logos/awslogo.png" alt="AWS">
+          <img src="logos/qm.png" alt="Quantum Machines">
+          <img src="logos/diraq.png" alt="DiRAC">
+          <img src="logos/quobly.png" alt="Quobly">
+          <img src="logos/quera.png" alt="QuEra">
+          <img src="logos/equal1.png" alt="Equal1">
+          <img src="logos/awslogo.png" alt="AWS">
+          <img src="logos/qm.png" alt="Quantum Machines">
+          <img src="logos/diraq.png" alt="DiRAC">
+          <img src="logos/quobly.png" alt="Quobly">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(70, 9, 111, 0.05), transparent); padding: 6rem 2rem;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Partner with qBraid</h2>
+        <p class="section-description">
+          Accelerate adoption of your quantum technology through qBraid's established ecosystem of 24,000+ users worldwide.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>Instant Market Access</h3>
+          <p>Reach thousands of quantum researchers, developers, and enterprises through qBraid Lab's integrated platform, plus co-marketing programs that showcase your hardware through joint campaigns and case studies.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚙️</div>
+          <h3>Turnkey Integration</h3>
+          <p>Deploy your devices quickly with minimal engineering overhead. We handle infrastructure, security, and scaling, so hardware partners can BYOQC (Bring Your Own Quantum Computer) and plug seamlessly into qBraid.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Usage Analytics</h3>
+          <p>Comprehensive insights into device utilization, user demographics, and application patterns.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3>Developer Ecosystem</h3>
+          <p>Your devices become accessible through popular quantum SDKs including Qiskit, Cirq, and Amazon Braket.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-section">
+        <div class="cta-content">
+          <h2>Ready to Deploy Your Quantum Hardware?</h2>
+          <p>Join leading quantum technology providers on the qBraid platform. Let's discuss how we can accelerate adoption of your quantum devices.</p>
+          <a href="contact.html" class="btn btn-white btn-large">Schedule a Partnership Call →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="qBraid Logo.png" alt="qBraid" class="footer-brand-logo" />
+        <p>The one-stop quantum computing platform for developers, researchers, and enterprises.</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Products</h4>
+        <ul class="footer-links">
+          <li><a href="qbraid-lab.html">qBraid Lab</a></li>
+          <li><a href="qbraid-os.html">qBraid OS</a></li>
+          <li><a href="https://qbook.qbraid.com/">qBook</a></li>
+          <li><a href="pilots.html">Pilots</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="education.html">Education</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="enterprise.html">Enterprise</a></li>
+          <li><a href="quantum-companies.html">Quantum Companies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="https://docs.qbraid.com/home/introduction" target="_blank" rel="noopener">Documentation</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="https://discord.com/invite/9jpmpeEV65" target="_blank" rel="noopener">Community</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="press.html">Press Kit</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 qBraid. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="security.html">Security</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+

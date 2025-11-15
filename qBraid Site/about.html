@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About qBraid - The World's Most Connected Quantum Platform | qBraid</title>
+  <meta name="description" content="Founded in 2020, qBraid serves 24K+ users across 120+ countries with access to 24+ quantum devices. Meet our team and learn about our mission to democratize quantum computing.">
+  <meta name="keywords" content="qBraid, quantum computing company, quantum software platform, quantum team, quantum computing mission, quantum startups">
+  <meta name="author" content="qBraid">
+  <link rel="canonical" href="https://www.qbraid.com/about.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.qbraid.com/about.html">
+  <meta property="og:title" content="About qBraid - The World's Most Connected Quantum Platform">
+  <meta property="og:description" content="Founded in 2020, qBraid serves 24K+ users across 120+ countries with access to 24+ quantum devices. Meet our team and investors.">
+  <meta property="og:image" content="https://www.qbraid.com/qBraid Logo.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.qbraid.com/about.html">
+  <meta property="twitter:title" content="About qBraid - The World's Most Connected Quantum Platform">
+  <meta property="twitter:description" content="Founded in 2020, qBraid serves 24K+ users across 120+ countries with access to 24+ quantum devices.">
+  <meta property="twitter:image" content="https://www.qbraid.com/qBraid Logo.png">
+  <meta name="twitter:site" content="@qbraid_official">
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #46096F;
+      --primary-dark: #3a0759;
+      --primary-light: #6b1aa3;
+      --secondary: #df0982;
+      --dark: #0f0f0f;
+      --dark-card: #1a1a1a;
+      --dark-border: rgba(255, 255, 255, 0.1);
+      --text: #ffffff;
+      --text-muted: #a1a1aa;
+      --success: #10b981;
+      --gradient: linear-gradient(135deg, #46096F 0%, #df0982 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Navigation - Copied from index.html */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      backdrop-filter: saturate(180%) blur(20px);
+      background: rgba(15, 15, 15, 0.8);
+      border-bottom: 1px solid var(--dark-border);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo img {
+      height: 32px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex: 1;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+    }
+
+    .nav-link.has-dropdown::after {
+      content: '▾';
+      font-size: 0.75rem;
+      transition: transform 0.2s;
+    }
+
+    .nav-link.has-dropdown:hover::after {
+      transform: translateY(2px);
+    }
+
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: calc(100% + 1rem);
+      left: 0;
+      background: rgba(26, 26, 26, 0.98);
+      backdrop-filter: saturate(180%) blur(20px);
+      border: 1px solid var(--dark-border);
+      border-radius: 0.75rem;
+      padding: 0.5rem;
+      min-width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    .nav-dropdown:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(70, 9, 111, 0.2);
+      color: var(--text);
+    }
+
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.625rem 1.25rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--dark-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+      box-shadow: 0 4px 20px rgba(70, 9, 111, 0.5);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(70, 9, 111, 0.7);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 120px;
+      padding-bottom: 60px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.5;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(70, 9, 111, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(223, 9, 130, 0.3) 0%, transparent 50%);
+    }
+
+    .hero-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content .gradient-text {
+      background: var(--gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    /* Section */
+    .section {
+      padding: 6rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Stats Grid */
+    .stats-container {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 1.5rem;
+      padding: 3rem 3rem;
+      max-width: 1400px;
+      margin: 4rem auto;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 900;
+      background: var(--gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    /* Partners/Investors Section */
+    .partners-grid, .investors-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      margin-top: 3rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .partner-logo, .investor-logo {
+      height: 70px;
+      width: auto;
+      max-width: 250px;
+      object-fit: contain;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+      filter: brightness(0) invert(1);
+      flex-shrink: 0;
+    }
+
+    .partner-logo:hover, .investor-logo:hover {
+      opacity: 1;
+    }
+
+    @media (min-width: 1024px) {
+      .investors-grid {
+        flex-wrap: nowrap;
+      }
+    }
+
+    /* Team Section */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .team-member-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .team-member {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .team-member-link:hover .team-member {
+      border-color: rgba(70, 9, 111, 0.6);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .team-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin: 0 auto 1.5rem;
+      overflow: hidden;
+    }
+
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.35);
+      filter: contrast(0.95) brightness(0.95);
+    }
+
+    .team-member h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .team-member .role {
+      color: var(--primary-light);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .team-member .education {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--dark-border);
+      padding: 4rem 2rem 2rem;
+      margin-top: 6rem;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand-logo {
+      height: 32px;
+      width: auto;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 0.5rem;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+
+    .social-link:hover {
+      border-color: var(--primary);
+      background: rgba(139, 92, 246, 0.1);
+      color: var(--primary);
+    }
+
+    .footer-column h4 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--dark-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-legal a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .footer-legal a:hover {
+      color: var(--text);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links,
+      .nav-buttons {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .section {
+        padding: 4rem 1.5rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .stats-container {
+        padding: 2rem 1.5rem;
+        margin: 2rem auto;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+      }
+
+      .investors-grid {
+        gap: 1.5rem;
+      }
+
+      .investor-logo {
+        height: 50px;
+        max-width: 150px;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">
+        <img src="qBraid Logo.png" alt="qBraid" />
+      </a>
+      
+      <div class="nav-links">
+        <div class="nav-dropdown">
+          <a href="#products" class="nav-link has-dropdown">Products</a>
+          <div class="dropdown-content">
+            <a href="qbraid-lab.html" class="dropdown-item">qBraid Lab</a>
+            <a href="qbraid-os.html" class="dropdown-item">qBraid OS</a>
+            <a href="https://qbook.qbraid.com/" class="dropdown-item">qBook</a>
+            <a href="pilots.html" class="dropdown-item">Pilots</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#solutions" class="nav-link has-dropdown">Solutions</a>
+          <div class="dropdown-content">
+            <a href="education.html" class="dropdown-item">Education</a>
+            <a href="research.html" class="dropdown-item">Research</a>
+            <a href="enterprise.html" class="dropdown-item">Enterprise</a>
+            <a href="quantum-companies.html" class="dropdown-item">Quantum Companies</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#resources" class="nav-link has-dropdown">Resources</a>
+          <div class="dropdown-content">
+            <a href="https://docs.qbraid.com/home/introduction" class="dropdown-item" target="_blank" rel="noopener">Documentation</a>
+            <a href="blog.html" class="dropdown-item">Blog</a>
+            <a href="about.html" class="dropdown-item">About</a>
+            <a href="https://discord.com/invite/9jpmpeEV65" class="dropdown-item" target="_blank" rel="noopener">Community</a>
+          </div>
+        </div>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="https://account.qbraid.com/" class="btn btn-secondary">Log In</a>
+        <a href="https://account.qbraid.com/" class="btn btn-primary">Start Free</a>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>
+        <span class="gradient-text">Democratizing</span><br/>
+        Quantum Computing
+      </h1>
+      <p>
+        qBraid is the world's most connected quantum software platform.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section">
+    <div class="stats-container">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-number">2020</div>
+          <div class="stat-label">Founded</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">24K+</div>
+          <div class="stat-label">Users</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">120+</div>
+          <div class="stat-label">Countries</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">40+</div>
+          <div class="stat-label">Universities</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">24+</div>
+          <div class="stat-label">Quantum Devices</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Meet the Team</h2>
+      <p>We're scientists, developers, and innovators. Our team of specialists in quantum physics, computer science, and engineering, are all driven by a shared passion for advancing quantum technology.</p>
+    </div>
+
+    <div class="team-grid">
+      <a href="https://www.linkedin.com/in/kanavsetia" class="team-member-link" target="_blank" rel="noopener">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="Team Headshots/Kanav.png" alt="Kanav Setia">
+          </div>
+          <h3>Kanav Setia</h3>
+          <div class="role">CEO</div>
+          <div class="education">Dartmouth College, PhD</div>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/ricky-young" class="team-member-link" target="_blank" rel="noopener">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="Team Headshots/Ricky.png" alt="Ricky Young">
+          </div>
+          <h3>Ricky Young</h3>
+          <div class="role">COO</div>
+          <div class="education">Stanford University</div>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/ryan-hill" class="team-member-link" target="_blank" rel="noopener">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="Team Headshots/Ryan.png" alt="Ryan Hill">
+          </div>
+          <h3>Ryan Hill</h3>
+          <div class="role">CTO</div>
+          <div class="education">Cornell University, MEng</div>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/kenneth-heitritter" class="team-member-link" target="_blank" rel="noopener">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="Team Headshots/Kenny.png" alt="Kenneth Heitritter">
+          </div>
+          <h3>Kenneth Heitritter</h3>
+          <div class="role">Vice President of R&D</div>
+          <div class="education">University of Iowa, PhD</div>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/tarini-hardikar" class="team-member-link" target="_blank" rel="noopener">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="Team Headshots/Tarini.png" alt="Tarini Hardikar">
+          </div>
+          <h3>Tarini Hardikar</h3>
+          <div class="role" style="white-space: nowrap;">Head of Scientific Apps & Product</div>
+          <div class="education">UC Berkeley, PhD</div>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/james-brown" class="team-member-link" target="_blank" rel="noopener">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="Team Headshots/James.png" alt="James Brown">
+          </div>
+          <h3>James Brown</h3>
+          <div class="role">Quantum Research Scientist</div>
+          <div class="education">Queen's University, PhD</div>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/brianmpearson" class="team-member-link" target="_blank" rel="noopener">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="Team Headshots/Brian.png" alt="Brian Pearson">
+          </div>
+          <h3>Brian Pearson</h3>
+          <div class="role">Head of Business Development</div>
+          <div class="education">University of Chicago, MBA</div>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/alex-van-bussum" class="team-member-link" target="_blank" rel="noopener">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="Team Headshots/Alex.png" alt="Alex Van Bussum">
+          </div>
+          <h3>Alex Van Bussum</h3>
+          <div class="role">Full Stack Engineer</div>
+          <div class="education">Arizona State University, MS</div>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/harshit-gupta" class="team-member-link" target="_blank" rel="noopener">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="Team Headshots/Harshit.png" alt="Harshit Gupta">
+          </div>
+          <h3>Harshit Gupta</h3>
+          <div class="role">Quantum Software Engineer</div>
+          <div class="education">NSUT, Delhi</div>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/dhruv-khara" class="team-member-link" target="_blank" rel="noopener">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="Team Headshots/Dhruv.png" alt="Dhruv Khara">
+          </div>
+          <h3>Dhruv Khara</h3>
+          <div class="role">Full Stack Engineer</div>
+          <div class="education">Pace University, MS</div>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/pranet-sharma" class="team-member-link" target="_blank" rel="noopener">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="Team Headshots/Pranet.png" alt="Pranet Sharma">
+          </div>
+          <h3>Pranet Sharma</h3>
+          <div class="role">Quantum Product Manager</div>
+          <div class="education">Yale University</div>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/masanori-hanada" class="team-member-link" target="_blank" rel="noopener">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="Team Headshots/Masanori.png" alt="Masanori Hanada">
+          </div>
+          <h3>Masanori Hanada</h3>
+          <div class="role">Scientific Advisor</div>
+          <div class="education">Kyoto University, PhD</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Investors Section -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="section-header">
+      <h2>Investors</h2>
+    </div>
+    <div class="investors-grid">
+      <a href="https://motivate.vc" target="_blank" rel="noopener">
+        <img src="logos/motivate.svg" alt="Motivate VC" class="investor-logo">
+      </a>
+      <a href="https://www.futurelabs.nyc" target="_blank" rel="noopener">
+        <img src="logos/futurelabs.png" alt="Future Labs Capital" class="investor-logo">
+      </a>
+      <a href="https://www.factorial.fund" target="_blank" rel="noopener">
+        <img src="logos/factorial.png" alt="Factorial VC" class="investor-logo">
+      </a>
+      <a href="https://buckleyventures.com" target="_blank" rel="noopener">
+        <img src="logos/bv.png" alt="Buckley Ventures" class="investor-logo" style="height: 110px; max-width: 360px;">
+      </a>
+      <a href="https://bantamgroup.com" target="_blank" rel="noopener">
+        <img src="logos/bantam.png" alt="Bantam Group" class="investor-logo">
+      </a>
+      <a href="https://twelvebelow.com" target="_blank" rel="noopener">
+        <img src="logos/twelvebelow.png" alt="Twelve Below Ventures" class="investor-logo" style="height: 110px; max-width: 360px;">
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="qBraid Logo.png" alt="qBraid" class="footer-brand-logo" />
+        <p>The one-stop quantum computing platform for developers, researchers, and enterprises.</p>
+        <div class="social-links">
+          <a href="https://github.com/qbraid" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+          <a href="https://linkedin.com/company/qbraid" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+          <a href="https://x.com/qbraid_official" class="social-link" target="_blank" rel="noopener" aria-label="Twitter">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="https://discord.com/invite/9jpmpeEV65" class="social-link" target="_blank" rel="noopener" aria-label="Discord">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Products</h4>
+        <ul class="footer-links">
+          <li><a href="qbraid-lab.html">qBraid Lab</a></li>
+          <li><a href="qbraid-os.html">qBraid OS</a></li>
+          <li><a href="https://qbook.qbraid.com/">qBook</a></li>
+          <li><a href="pilots.html">Pilots</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="education.html">Education</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="enterprise.html">Enterprise</a></li>
+          <li><a href="quantum-companies.html">Quantum Companies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="https://docs.qbraid.com/home/introduction" target="_blank" rel="noopener">Documentation</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="https://discord.com/invite/9jpmpeEV65" target="_blank" rel="noopener">Community</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="press.html">Press Kit</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 qBraid. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="security.html">Security</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

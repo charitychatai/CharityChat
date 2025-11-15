@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>qBraid Pricing - Free, Standard & Pro Plans | qBraid</title>
+  <meta name="description" content="Start free with qBraid. Access quantum computing tools, devices, and cloud environments. Standard and Pro plans available for advanced features and priority support.">
+  <meta name="keywords" content="qBraid pricing, quantum computing pricing, quantum cloud pricing, free quantum access, quantum subscription">
+  <meta name="author" content="qBraid">
+  <link rel="canonical" href="https://www.qbraid.com/pricing.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.qbraid.com/pricing.html">
+  <meta property="og:title" content="qBraid Pricing - Free, Standard & Pro Plans">
+  <meta property="og:description" content="Start free with qBraid. Access quantum computing tools, devices, and cloud environments.">
+  <meta property="og:image" content="https://www.qbraid.com/qBraid Logo.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.qbraid.com/pricing.html">
+  <meta property="twitter:title" content="qBraid Pricing - Free, Standard & Pro Plans">
+  <meta property="twitter:description" content="Start free with qBraid. Access quantum computing tools, devices, and cloud environments.">
+  <meta property="twitter:image" content="https://www.qbraid.com/qBraid Logo.png">
+  <meta name="twitter:site" content="@qbraid_official">
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #46096F;
+      --primary-dark: #3a0759;
+      --primary-light: #6b1aa3;
+      --secondary: #df0982;
+      --dark: #0f0f0f;
+      --dark-card: #1a1a1a;
+      --dark-border: rgba(255, 255, 255, 0.1);
+      --text: #ffffff;
+      --text-muted: #a1a1aa;
+      --success: #10b981;
+      --gradient: linear-gradient(135deg, #46096F 0%, #df0982 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      backdrop-filter: saturate(180%) blur(20px);
+      background: rgba(15, 15, 15, 0.8);
+      border-bottom: 1px solid var(--dark-border);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 32px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex: 1;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+    }
+
+    .nav-link.has-dropdown::after {
+      content: '▾';
+      font-size: 0.75rem;
+      transition: transform 0.2s;
+    }
+
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: calc(100% + 1rem);
+      left: 0;
+      background: rgba(26, 26, 26, 0.98);
+      backdrop-filter: saturate(180%) blur(20px);
+      border: 1px solid var(--dark-border);
+      border-radius: 0.75rem;
+      padding: 0.5rem;
+      min-width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    .nav-dropdown:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(70, 9, 111, 0.2);
+      color: var(--text);
+    }
+
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.625rem 1.25rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--dark-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+      box-shadow: 0 4px 20px rgba(70, 9, 111, 0.5);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(70, 9, 111, 0.7);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: rgba(70, 9, 111, 0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 140px 2rem 80px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Pricing Section */
+    .pricing-section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 4rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 6rem;
+    }
+
+    .price-card {
+      background: var(--dark-card);
+      border: 2px solid var(--dark-border);
+      border-radius: 1.5rem;
+      padding: 3rem 2.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .price-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(70, 9, 111, 0.5);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .price-card.featured {
+      border-color: var(--primary);
+      box-shadow: 0 10px 40px rgba(70, 9, 111, 0.4);
+      background: linear-gradient(to bottom, rgba(70, 9, 111, 0.05), var(--dark-card));
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient);
+      color: white;
+      padding: 0.375rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .price-card h3 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-card .tagline {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .price .currency {
+      font-size: 2rem;
+      font-weight: 900;
+    }
+
+    .price .amount {
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .price .period {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .price-card .btn {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .features-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .features {
+      list-style: none;
+    }
+
+    .features li {
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--dark-border);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .features li:last-child {
+      border-bottom: none;
+    }
+
+    .features li::before {
+      content: '✓';
+      color: var(--success);
+      font-weight: 900;
+      font-size: 1.125rem;
+      flex-shrink: 0;
+    }
+
+    /* Additional Pricing Sections */
+    .additional-pricing {
+      padding: 4rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 3rem;
+    }
+
+    .pricing-info-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 1.5rem;
+      padding: 3rem;
+      transition: all 0.3s ease;
+    }
+
+    .pricing-info-card:hover {
+      border-color: rgba(70, 9, 111, 0.5);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .pricing-info-card h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .pricing-info-card p {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--dark-border);
+      padding: 4rem 2rem 2rem;
+      margin-top: 6rem;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand-logo {
+      height: 32px;
+      width: auto;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-column h4 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--dark-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-legal a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .footer-legal a:hover {
+      color: var(--text);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .additional-pricing {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="qBraid Logo.png" alt="qBraid" />
+      </a>
+      
+      <div class="nav-links">
+        <div class="nav-dropdown">
+          <a href="#products" class="nav-link has-dropdown">Products</a>
+          <div class="dropdown-content">
+            <a href="qbraid-lab.html" class="dropdown-item">qBraid Lab</a>
+            <a href="qbraid-os.html" class="dropdown-item">qBraid OS</a>
+            <a href="https://qbook.qbraid.com/" class="dropdown-item">qBook</a>
+            <a href="pilots.html" class="dropdown-item">Pilots</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#solutions" class="nav-link has-dropdown">Solutions</a>
+          <div class="dropdown-content">
+            <a href="education.html" class="dropdown-item">Education</a>
+            <a href="research.html" class="dropdown-item">Research</a>
+            <a href="enterprise.html" class="dropdown-item">Enterprise</a>
+            <a href="quantum-companies.html" class="dropdown-item">Quantum Companies</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#resources" class="nav-link has-dropdown">Resources</a>
+          <div class="dropdown-content">
+            <a href="https://docs.qbraid.com/home/introduction" class="dropdown-item" target="_blank" rel="noopener">Documentation</a>
+            <a href="tutorials.html" class="dropdown-item">Tutorials</a>
+            <a href="blog.html" class="dropdown-item">Blog</a>
+            <a href="https://discord.com/invite/9jpmpeEV65" class="dropdown-item" target="_blank" rel="noopener">Community</a>
+          </div>
+        </div>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="https://account.qbraid.com/" class="btn btn-secondary">Log In</a>
+        <a href="https://account.qbraid.com/" class="btn btn-primary">Start Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Simple, <span class="gradient-text">flexible</span> pricing</h1>
+    <p>Not sure where to start? Create a free account to explore the qBraid platform.</p>
+  </section>
+
+  <!-- Pricing Grid -->
+  <section class="container pricing-section">
+    <div class="pricing-grid">
+      <!-- Free Plan -->
+      <div class="price-card">
+        <h3>Free Plan</h3>
+        <p class="tagline">for those getting started</p>
+        
+        <div class="price">
+          <span class="currency">$</span>
+          <span class="amount">0.00</span>
+          <span class="period">/mo</span>
+        </div>
+
+        <a href="https://account.qbraid.com/" class="btn btn-outline">Start Free Plan</a>
+
+        <div class="features-title">Free:</div>
+        <ul class="features">
+          <li>2 vCPU</li>
+          <li>4 GB RAM</li>
+          <li>5 GB Cloud Storage</li>
+          <li>Access to 20+ QPUs</li>
+          <li>VSCode/Cursor Integration</li>
+          <li>qBraid SDK Access</li>
+        </ul>
+      </div>
+
+      <!-- Standard Plan -->
+      <div class="price-card featured">
+        <div class="popular-badge">Most Popular</div>
+        <h3>Standard Plan</h3>
+        <p class="tagline">for quantum builders</p>
+        
+        <div class="price">
+          <span class="currency">$</span>
+          <span class="amount">19.99</span>
+          <span class="period">/mo</span>
+        </div>
+
+        <a href="https://account.qbraid.com/" class="btn btn-primary">Purchase Plan</a>
+
+        <div class="features-title">Everything in Free plus:</div>
+        <ul class="features">
+          <li>4 vCPU</li>
+          <li>8 GB RAM</li>
+          <li>10 GB Cloud Storage</li>
+          <li>Create and share custom environments</li>
+          <li>Clone environments</li>
+        </ul>
+      </div>
+
+      <!-- Pro Plan -->
+      <div class="price-card">
+        <h3>Pro Plan</h3>
+        <p class="tagline">for quantum innovators</p>
+        
+        <div class="price">
+          <span class="currency">$</span>
+          <span class="amount">99.49</span>
+          <span class="period">/mo</span>
+        </div>
+
+        <a href="https://account.qbraid.com/" class="btn btn-outline">Purchase Plan</a>
+
+        <div class="features-title">Everything in Standard plus:</div>
+        <ul class="features">
+          <li>10 vCPU</li>
+          <li>16 GB RAM</li>
+          <li>40 GB Cloud Storage</li>
+          <li>Manage group access and compute credits</li>
+          <li>Keep your server running longer when inactive</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Additional Pricing Options -->
+    <div class="additional-pricing">
+      <div class="pricing-info-card">
+        <h3>Academic Pricing</h3>
+        <p>qBraid provides dedicated, affordable support and unparalleled hardware access for research labs, university courses, and quantum ecosystems.</p>
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+      </div>
+
+      <div class="pricing-info-card">
+        <h3>Enterprise Pricing</h3>
+        <p>qBraid empowers enterprise quantum software teams with robust development environments, multi-modal QPUs, and scalable workflows.</p>
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+      </div>
+
+      <div class="pricing-info-card">
+        <h3>qBraid OS</h3>
+        <p>Bring your own quantum computer and connect it to thousands of users through qBraid Runtime, SDK, and Gateway. Contact us to design a tailored OS partnership.</p>
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+      </div>
+
+      <div class="pricing-info-card">
+        <h3>qBraid Pilots</h3>
+        <p>Co-develop end-to-end quantum solutions—from use case discovery to production deployment—with the qBraid Pilots team. Reach out for a custom program.</p>
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="qBraid Logo.png" alt="qBraid" class="footer-brand-logo" />
+        <p>The one-stop quantum computing platform for developers, researchers, and enterprises.</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Products</h4>
+        <ul class="footer-links">
+          <li><a href="qbraid-lab.html">qBraid Lab</a></li>
+          <li><a href="qbraid-os.html">qBraid OS</a></li>
+          <li><a href="https://qbook.qbraid.com/">qBook</a></li>
+          <li><a href="pilots.html">Pilots</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="education.html">Education</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="enterprise.html">Enterprise</a></li>
+          <li><a href="quantum-companies.html">Quantum Companies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="https://docs.qbraid.com/home/introduction" target="_blank" rel="noopener">Documentation</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="https://discord.com/invite/9jpmpeEV65" target="_blank" rel="noopener">Community</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="press.html">Press Kit</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 qBraid. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="security.html">Security</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

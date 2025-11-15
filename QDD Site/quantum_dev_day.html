@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Developer Day at The Chicago Quantum Summit</title>
+    <title>Quantum Developer Day 2025 at The Chicago Quantum Summit</title>
     <style>
         /* Import fonts */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -45,6 +45,19 @@
             line-height: 1.2;
             letter-spacing: -0.02em;
             position: relative;
+        }
+        
+        .event-countdown {
+            display: inline-block;
+            margin-top: 0.75rem;
+            color: #ffffff;
+            font-weight: 500;
+            font-variant-numeric: tabular-nums;
+            background: #1a1a1a;
+            border: 1px solid #333333;
+            padding: 0.375rem 0.625rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
         }
         
         .event-title::after {
@@ -276,6 +289,14 @@
             color: #8b5cf6;
         }
         
+        footer {
+            text-align: center;
+            color: #e5e5e5;
+            opacity: .9;
+            padding: 40px 0;
+        }
+        footer a { color: #ffffff; text-underline-offset: 2px; }
+        
         /* Responsive design */
         @media (max-width: 768px) {
             .container {
@@ -339,10 +360,11 @@
     <div class="container">
         <!-- Header -->
         <header class="header fade-in">
-            <h1 class="event-title">Quantum Developer Day</h1>
+            <h1 class="event-title">Quantum Developer Day 2025</h1>
             <p class="event-subtitle">at <a href="https://chicagoquantum.org/event/2025-chicago-quantum-summit" target="_blank" rel="noopener noreferrer">The Chicago Quantum Summit</a></p>
             <p style="color: #888888; font-size: 1rem;">Hosted by <span class="info-highlight">qBraid</span> and <span class="info-highlight">Chicago Quantum Exchange</span></p>
-            <img src="https://qbraid-static.s3.us-east-1.amazonaws.com/events/Quantum+Developer+Day+(11).png" alt="Quantum Developer Day Poster" class="poster-image fade-in" loading="lazy" decoding="async" />
+            <div id="event-countdown" class="event-countdown" aria-live="polite" title="Time until Nov 2, 2025 1:00 PM CT">—</div>
+            <img src="https://cdn.prod.website-files.com/68d6ee3df37f1af593bbb614/68ed9b8c112f6e1ea83c578f_Quantum%20Developer%20Day%202025%20Poster.png" alt="Quantum Developer Day 2025 Poster" class="poster-image fade-in" loading="lazy" decoding="async" />
         </header>
 
         <!-- Event Info -->
@@ -380,66 +402,98 @@
             <h2 class="section-title fade-in">Event Schedule</h2>
             
             <div class="schedule-item slide-in">
-                <div class="schedule-time">1:00–1:30 PM</div>
+                <div class="schedule-time">1:00–1:20 PM</div>
                 <div class="schedule-content">
                     <h4>Registration & Networking Coffee</h4>
-                    <p>Arrival, sponsor booths open, informal networking</p>
+                    <p>Arrival, sponsor demos open, informal networking</p>
                 </div>
             </div>
             
             <div class="schedule-item slide-in" style="animation-delay: 0.1s;">
-                <div class="schedule-time">1:30–1:40 PM</div>
+                <div class="schedule-time">1:20–1:30 PM</div>
                 <div class="schedule-content">
                     <h4>Opening Remarks & Sponsor Recognition</h4>
-                    <p>Welcome from Chicago Quantum Exchange, outline of Quantum Developer Day focus, sponsor acknowledgments</p>
+                    <p>Welcome from CQE, outline of technical focus, sponsor acknowledgments</p>
                 </div>
             </div>
             
             <div class="schedule-item slide-in" style="animation-delay: 0.2s;">
-                <div class="schedule-time">1:40–2:00 PM</div>
+                <div class="schedule-time">1:30–2:00 PM</div>
                 <div class="schedule-content">
-                    <h4>Keynote: Building the Operating System for Quantum Computing</h4>
-                    <p>Updates on the state of quantum software tools and qBraid by Kanav Setia </p>
+                    <h4>Keynote: Quantum Software for Enterprise</h4>
+                    <p>Updates on the state of quantum software tools and qBraid demo by Kanav Setia </p>
                 </div>
             </div>
             
             <div class="schedule-item slide-in" style="animation-delay: 0.3s;">
-                <div class="schedule-time">2:00–3:15 PM</div>
+                <div class="schedule-time">2:00–2:05 PM</div>
                 <div class="schedule-content">
-                    <h4>Enterprise Use Case Lightning Talks</h4>
-                    <p>5 lightning technical presentations from Xanadu, IBM, Sponsor 1, Sponsor 2, Sponsor 3</p>
+                    <h4>Coffee Break</h4>
+                    <p>Refreshments</p>
                 </div>
             </div>
             
             <div class="schedule-item slide-in" style="animation-delay: 0.4s;">
-                <div class="schedule-time">3:15–3:30 PM</div>
+                <div class="schedule-time">2:05–3:20 PM</div>
                 <div class="schedule-content">
-                    <h4>Break, Networking, & Demo Booths</h4>
-                    <p>Break</p>
+                    <h4>Enterprise Use Case Lightning Talks</h4>
+                    <p>5 concise technical presentations from <a href="https://www.xanadu.ai/" target="_blank" rel="noopener noreferrer" class="info-highlight">Xanadu</a>, <a href="https://www.ibm.com/" target="_blank" rel="noopener noreferrer" class="info-highlight">IBM</a>, <a href="https://ionq.com/" target="_blank" rel="noopener noreferrer" class="info-highlight">IonQ</a>, + More </p>
                 </div>
             </div>
             
             <div class="schedule-item slide-in" style="animation-delay: 0.5s;">
-                <div class="schedule-time">3:30–4:15 PM</div>
+                <div class="schedule-time">3:20–3:30 PM</div>
                 <div class="schedule-content">
-                    <h4>Technical Workshops</h4>
-                    <p>3 Hands-on, code-driven sessions led by sponsors and partners</p>
+                    <h4>Break, Networking, & Booths</h4>
+                    <p>Extended technical discussions at sponsor booths</p>
                 </div>
             </div>
             
             <div class="schedule-item slide-in" style="animation-delay: 0.6s;">
-                <div class="schedule-time">4:15–5:00 PM</div>
+                <div class="schedule-time">3:30–3:40 PM</div>
                 <div class="schedule-content">
-                    <h4>Panel: Scaling Quantum Software in Industry</h4>
-                    <p>Panel with enterprise users and quantum software leaders</p>
+                    <h4>Enterprise Education with <a href="https://q-ctrl.com/" target="_blank" rel="noopener noreferrer" class="info-highlight">Q-CTRL</a></h4>
+                    <p>Bringing quantum knowledge to business exploring applications </p>
                 </div>
             </div>
             
             <div class="schedule-item slide-in" style="animation-delay: 0.7s;">
+                <div class="schedule-time">3:40–4:00 PM</div>
+                <div class="schedule-content">
+                    <h4>Lecture 1</h4>
+                    <p><a href="https://chemistry.uchicago.edu/laura-gagliardi" target="_blank" rel="noopener noreferrer" style="color:#ffffff; text-decoration: underline; text-underline-offset: 2px;">Laura Gagliardi</a>, Richard and Kathy Leventhal Professor of Chemistry and Molecular Engineering at University of Chicago</p>
+                </div>
+            </div>
+            
+            <div class="schedule-item slide-in" style="animation-delay: 0.8s;">
+                <div class="schedule-time">4:00–4:05 PM</div>
+                <div class="schedule-content">
+                    <h4>Coffee Break</h4>
+                    <p>Refreshments</p>
+                </div>
+            </div>
+            
+            <div class="schedule-item slide-in" style="animation-delay: 0.9s;">
+                <div class="schedule-time">4:05–4:25 PM</div>
+                <div class="schedule-content">
+                    <h4>Lecture 2</h4>
+                    <p>Speaker TBD</p>
+                </div>
+            </div>
+            
+            <div class="schedule-item slide-in" style="animation-delay: 1.0s;">
+                <div class="schedule-time">4:30–5:00 PM</div>
+                <div class="schedule-content">
+                    <h4>Technical Panel: Scaling Quantum Software in Industry</h4>
+                    <p>Panel with enterprise users and quantum software leaders</p>
+                </div>
+            </div>
+            
+            <div class="schedule-item slide-in" style="animation-delay: 1.1s;">
                 <div class="schedule-time">5:00–6:00 PM</div>
                 <div class="schedule-content">
-                    <h4>Networking & Dinner Session hosted by qBraid</h4>
-                    <p>In-depth networking and discussion over dinner</p>
+                    <h4>Networking & Dinner Session (qBraid Hosted)</h4>
+                    <p>Exclusive, in-depth networking and technical discussion over dinner</p>
                 </div>
             </div>
         </section>
@@ -457,6 +511,9 @@
                 <p><a href="mailto:brian.pearson@qBraid.com">brian.pearson@qBraid.com</a></p>
             </div>
         </section>
+        <footer>
+            © 2025 qBraid • <a href="#top">Back to top</a> • <a href="https://socialpresskit.com/qbraid" target="_blank" rel="noopener noreferrer">Press Kit</a> • <a href="https://www.quantumdeveloperday.com/privacy">Privacy</a> • <a href="https://www.quantumdeveloperday.com/terms">Terms</a>
+        </footer>
     </div>
 
     <script>
@@ -496,6 +553,33 @@
                 }
             });
         });
+
+        // Countdown to Nov 2, 2025 1:00 PM Central Time with seconds
+        (function initEventCountdown() {
+            const el = document.getElementById('event-countdown');
+            if (!el) return;
+            const targetZoned = new Date(
+                new Date(
+                    new Date('2025-11-02T19:00:00Z').toLocaleString('en-US', { timeZone: 'America/Chicago' })
+                ).toISOString()
+            );
+            function update() {
+                const now = new Date();
+                const ms = targetZoned.getTime() - now.getTime();
+                if (ms <= 0) {
+                    el.textContent = 'Event live now';
+                    return;
+                }
+                const totalSeconds = Math.floor(ms / 1000);
+                const days = Math.floor(totalSeconds / 86400);
+                const hours = Math.floor((totalSeconds % 86400) / 3600);
+                const minutes = Math.floor((totalSeconds % 3600) / 60);
+                const seconds = totalSeconds % 60;
+                el.textContent = `${days}d ${String(hours).padStart(2,'0')}h ${String(minutes).padStart(2,'0')}m ${String(seconds).padStart(2,'0')}s`;
+            }
+            update();
+            setInterval(update, 1000);
+        })();
     </script>
 </body>
 </html>

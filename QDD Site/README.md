@@ -1,6 +1,6 @@
-# Quantum Developer Day — Static Site
+# Quantum Developer Day 2025 — Static Site
 
-A lightweight, single-page site for Quantum Developer Day. Built with plain HTML/CSS and deployable anywhere.
+A lightweight, single-page site for Quantum Developer Day 2025. Built with plain HTML/CSS and deployable anywhere.
 
 ## Local preview
 

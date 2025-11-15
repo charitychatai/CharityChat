@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Download Helper</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #0f0f0f;
+      color: #fff;
+    }
+    h1 {
+      color: #46096F;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      color: #a1a1aa;
+      margin-bottom: 40px;
+    }
+    .logo-card {
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .logo-card h3 {
+      margin-top: 0;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .filename {
+      font-family: monospace;
+      background: #46096F;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      color: #fff;
+    }
+    .links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .link-btn {
+      padding: 8px 16px;
+      background: rgba(70, 9, 111, 0.2);
+      border: 1px solid rgba(70, 9, 111, 0.4);
+      border-radius: 6px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9em;
+      transition: all 0.2s;
+    }
+    .link-btn:hover {
+      background: rgba(70, 9, 111, 0.4);
+      border-color: rgba(70, 9, 111, 0.6);
+    }
+    .instructions {
+      background: rgba(223, 9, 130, 0.1);
+      border: 1px solid rgba(223, 9, 130, 0.3);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    .instructions h2 {
+      margin-top: 0;
+      color: #df0982;
+    }
+    .note {
+      color: #a1a1aa;
+      font-size: 0.9em;
+      margin-top: 10px;
+    }
+    .status {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.8em;
+      margin-left: 10px;
+    }
+    .status.needed {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 Logo Download Helper</h1>
+  <p class="subtitle">Quick links to download company logos for the scrolling marquee</p>
+
+  <div class="instructions">
+    <h2>📋 Instructions</h2>
+    <ol>
+      <li>Click on the brand resource links below for each company</li>
+      <li>Download their logo (PNG or SVG format preferred)</li>
+      <li>Save the file with the exact filename shown (e.g., <code>ibm-logo.png</code>)</li>
+      <li>Place all logo files in the <code>logos/</code> folder</li>
+    </ol>
+    <p class="note">💡 <strong>Tip:</strong> Any color logo works! The CSS automatically converts them to white.</p>
+  </div>
+
+  <!-- IBM -->
+  <div class="logo-card">
+    <h3>
+      IBM
+      <span class="filename">ibm-logo.png</span>
+      <span class="status needed">NEEDED</span>
+    </h3>
+    <p class="note">International Business Machines - Quantum Computing</p>
+    <div class="links">
+      <a href="https://www.ibm.com/brand/experience-guides/" target="_blank" class="link-btn">IBM Brand Center</a>
+      <a href="https://brandfetch.com/ibm.com" target="_blank" class="link-btn">Brandfetch</a>
+      <a href="https://www.google.com/search?q=ibm+logo+png+transparent" target="_blank" class="link-btn">Google Search</a>
+    </div>
+  </div>
+
+  <!-- IonQ -->
+  <div class="logo-card">
+    <h3>
+      IonQ
+      <span class="filename">ionq-logo.png</span>
+      <span class="status needed">NEEDED</span>
+    </h3>
+    <p class="note">Trapped Ion Quantum Computing</p>
+    <div class="links">
+      <a href="https://ionq.com/" target="_blank" class="link-btn">IonQ Website</a>
+      <a href="https://brandfetch.com/ionq.com" target="_blank" class="link-btn">Brandfetch</a>
+      <a href="https://www.google.com/search?q=ionq+logo+png+transparent" target="_blank" class="link-btn">Google Search</a>
+    </div>
+  </div>
+
+  <!-- Rigetti -->
+  <div class="logo-card">
+    <h3>
+      Rigetti Computing
+      <span class="filename">rigetti-logo.png</span>
+      <span class="status needed">NEEDED</span>
+    </h3>
+    <p class="note">Superconducting Quantum Computers</p>
+    <div class="links">
+      <a href="https://www.rigetti.com/" target="_blank" class="link-btn">Rigetti Website</a>
+      <a href="https://brandfetch.com/rigetti.com" target="_blank" class="link-btn">Brandfetch</a>
+      <a href="https://www.google.com/search?q=rigetti+computing+logo+png" target="_blank" class="link-btn">Google Search</a>
+    </div>
+  </div>
+
+  <!-- Oxford Quantum Circuits -->
+  <div class="logo-card">
+    <h3>
+      Oxford Quantum Circuits
+      <span class="filename">oxford-logo.png</span>
+      <span class="status needed">NEEDED</span>
+    </h3>
+    <p class="note">OQC - Quantum Computing Innovation</p>
+    <div class="links">
+      <a href="https://oxfordquantumcircuits.com/" target="_blank" class="link-btn">OQC Website</a>
+      <a href="https://brandfetch.com/oxfordquantumcircuits.com" target="_blank" class="link-btn">Brandfetch</a>
+      <a href="https://www.google.com/search?q=oxford+quantum+circuits+logo+png" target="_blank" class="link-btn">Google Search</a>
+    </div>
+  </div>
+
+  <!-- MIT -->
+  <div class="logo-card">
+    <h3>
+      MIT
+      <span class="filename">mit-logo.png</span>
+      <span class="status needed">NEEDED</span>
+    </h3>
+    <p class="note">Massachusetts Institute of Technology</p>
+    <div class="links">
+      <a href="https://web.mit.edu/graphicidentity/" target="_blank" class="link-btn">MIT Brand Identity</a>
+      <a href="https://brandfetch.com/mit.edu" target="_blank" class="link-btn">Brandfetch</a>
+      <a href="https://www.google.com/search?q=mit+logo+png+transparent" target="_blank" class="link-btn">Google Search</a>
+    </div>
+  </div>
+
+  <!-- Xanadu -->
+  <div class="logo-card">
+    <h3>
+      Xanadu
+      <span class="filename">xanadu-logo.png</span>
+      <span class="status needed">NEEDED</span>
+    </h3>
+    <p class="note">Photonic Quantum Computing</p>
+    <div class="links">
+      <a href="https://www.xanadu.ai/" target="_blank" class="link-btn">Xanadu Website</a>
+      <a href="https://brandfetch.com/xanadu.ai" target="_blank" class="link-btn">Brandfetch</a>
+      <a href="https://www.google.com/search?q=xanadu+quantum+logo+png" target="_blank" class="link-btn">Google Search</a>
+    </div>
+  </div>
+
+  <!-- Q-CTRL -->
+  <div class="logo-card">
+    <h3>
+      Q-CTRL
+      <span class="filename">q-ctrl-logo.png</span>
+      <span class="status needed">NEEDED</span>
+    </h3>
+    <p class="note">Quantum Control Infrastructure Software</p>
+    <div class="links">
+      <a href="https://q-ctrl.com/" target="_blank" class="link-btn">Q-CTRL Website</a>
+      <a href="https://brandfetch.com/q-ctrl.com" target="_blank" class="link-btn">Brandfetch</a>
+      <a href="https://www.google.com/search?q=q-ctrl+logo+png" target="_blank" class="link-btn">Google Search</a>
+    </div>
+  </div>
+
+  <!-- IQM -->
+  <div class="logo-card">
+    <h3>
+      IQM Quantum Computers
+      <span class="filename">iqm-logo.png</span>
+      <span class="status needed">NEEDED</span>
+    </h3>
+    <p class="note">European Quantum Computing Leader</p>
+    <div class="links">
+      <a href="https://www.meetiqm.com/" target="_blank" class="link-btn">IQM Website</a>
+      <a href="https://brandfetch.com/meetiqm.com" target="_blank" class="link-btn">Brandfetch</a>
+      <a href="https://www.google.com/search?q=iqm+quantum+computers+logo+png" target="_blank" class="link-btn">Google Search</a>
+    </div>
+  </div>
+
+  <!-- equal1 -->
+  <div class="logo-card">
+    <h3>
+      equal1
+      <span class="filename">equal1-logo.png</span>
+      <span class="status needed">NEEDED</span>
+    </h3>
+    <p class="note">Quantum Computing Technology</p>
+    <div class="links">
+      <a href="https://equal1.com/" target="_blank" class="link-btn">equal1 Website</a>
+      <a href="https://brandfetch.com/equal1.com" target="_blank" class="link-btn">Brandfetch</a>
+      <a href="https://www.google.com/search?q=equal1+quantum+logo+png" target="_blank" class="link-btn">Google Search</a>
+    </div>
+  </div>
+
+  <div class="instructions" style="margin-top: 40px;">
+    <h2>✅ After Downloading</h2>
+    <ol>
+      <li>Rename each file to match the exact filename shown above</li>
+      <li>Ensure all files are in PNG or SVG format</li>
+      <li>Place them in the <code>/logos/</code> folder</li>
+      <li>Refresh your website to see the logos in the scrolling marquee!</li>
+    </ol>
+    <p class="note">🎨 Remember: Any color logo will work - they're automatically converted to white via CSS filters!</p>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>qBraid Media Kit</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    :root { --bg: #0f1115; --text: #eaeef2; --muted: #9aa4af; --card: #151923; --border: #232938; --accent: #5b8cff; }
+    @media (prefers-color-scheme: light) { :root { --bg: #ffffff; --text: #0b1220; --muted: #5a6575; --card: #f7f8fa; --border: #e7e9ee; --accent: #2a5cff; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--text); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 64px; }
+    header { padding: 24px 0 8px; }
+    h1 { font-size: 32px; margin: 0 0 8px; }
+    p.lead { margin: 0 0 24px; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+    .card h3 { font-size: 16px; margin: 0 0 8px; font-weight: 600; }
+    .preview { border-radius: 10px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; padding: 24px; margin-bottom: 12px; }
+    .preview.light { background: #ffffff; }
+    .preview.dark { background: #0b0f16; }
+    .preview.neutral { background: linear-gradient(45deg,#f4f6fa 25%, #e9edf4 25%, #e9edf4 50%, #f4f6fa 50%, #f4f6fa 75%, #e9edf4 75%, #e9edf4 100%); background-size: 16px 16px; }
+    .preview img { width: auto; max-width: 100%; max-height: 120px; image-rendering: -webkit-optimize-contrast; }
+    .meta { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); color: var(--text); text-decoration: none; background: transparent; transition: background .15s, border-color .15s; }
+    .btn:hover { background: rgba(90,100,120,.08); border-color: var(--accent); }
+    .small { color: var(--muted); font-size: 12px; }
+    section.guidelines { margin-top: 32px; }
+    ul { margin: 8px 0 0 18px; }
+  </style>
+  <meta name="description" content="Official qBraid logos and usage guidelines. Download the white and black logotypes and the qBraid mark.">
+  <meta property="og:title" content="qBraid Media Kit">
+  <meta property="og:description" content="Download official qBraid logos and view usage guidelines.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0f1115">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <meta name="color-scheme" content="dark light">
+  <base href="/">
+  <noscript>JavaScript is not required to download these assets.</noscript>
+  <style>
+    @media (max-width: 480px) { h1 { font-size: 26px; } .preview img { max-height: 96px; } }
+  </style>
+  <!-- Paths use URL-encoded space for the 'qBraid Site' directory -->
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>qBraid Media Kit</h1>
+      <p class="lead">Download official qBraid logos. Use the white logotype on dark backgrounds and the black logotype on light backgrounds.</p>
+    </header>
+
+    <section class="grid" aria-label="Logo downloads">
+      <article class="card" aria-labelledby="logotype-black-title">
+        <h3 id="logotype-black-title">qBraid Logotype — Black</h3>
+        <div class="preview light" role="img" aria-label="qBraid black logotype on light background">
+          <img src="qBraid%20Site/qbraid_logo_text_black.png" alt="qBraid logotype black">
+        </div>
+        <div class="meta">
+          <a class="btn" href="qBraid%20Site/qbraid_logo_text_black.png" download="qbraid_logo_text_black.png">Download PNG</a>
+          <span class="small">Use on light backgrounds</span>
+        </div>
+      </article>
+
+      <article class="card" aria-labelledby="logotype-white-title">
+        <h3 id="logotype-white-title">qBraid Logotype — White</h3>
+        <div class="preview dark" role="img" aria-label="qBraid white logotype on dark background">
+          <img src="qBraid%20Site/qbraid_logo_text_white.png" alt="qBraid logotype white">
+        </div>
+        <div class="meta">
+          <a class="btn" href="qBraid%20Site/qbraid_logo_text_white.png" download="qbraid_logo_text_white.png">Download PNG</a>
+          <span class="small">Use on dark backgrounds</span>
+        </div>
+      </article>
+
+      <article class="card" aria-labelledby="mark-title">
+        <h3 id="mark-title">qBraid Mark</h3>
+        <div class="preview neutral" role="img" aria-label="qBraid mark on neutral background">
+          <img src="qBraid%20Site/qbraid.png" alt="qBraid mark">
+        </div>
+        <div class="meta">
+          <a class="btn" href="qBraid%20Site/qbraid.png" download="qbraid.png">Download PNG</a>
+          <span class="small">Icon / small sizes</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="guidelines card" aria-label="Usage guidelines">
+      <h3>Usage guidelines</h3>
+      <ul>
+        <li>Maintain clear space around the logo equal to the height of the “q”.</li>
+        <li>Do not alter colors, proportions, or orientation.</li>
+        <li>Use the white logotype on dark backgrounds; black logotype on light backgrounds.</li>
+        <li>For small sizes or square spaces, use the qBraid mark.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+<!-- Built for the assets in the 'qBraid Site' folder: qbraid_logo_text_black.png, qbraid_logo_text_white.png, qbraid.png -->
+</html>
+
+
+
