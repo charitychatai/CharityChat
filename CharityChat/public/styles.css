@@ -306,6 +306,13 @@ button:not(:disabled):hover {
   flex-wrap: wrap;
 }
 
+#chat-form button {
+  padding: 0.55rem 2.5rem;
+  border-radius: 14px;
+  min-width: 150px;
+  align-self: flex-start;
+}
+
 #chat-input {
   flex: 1;
   min-height: 110px;
