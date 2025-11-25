@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Charity Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <div class="logo-badge">CC</div>
+        <div>
+          <p class="brand-title">Charity Chat</p>
+          <p class="brand-subtitle">Ad-powered impact</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="ghost-btn" type="button">Impact report</button>
+        <button class="primary-btn" type="button">Donate now</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Impact-first AI chat</p>
+        <h1>Smart answers, real donations.</h1>
+        <p class="hero-lede">
+          Every ChatGPT-powered response carries curated ads. All proceeds move directly to vetted charities, so your
+          curiosity fuels lasting change.
+        </p>
+        <div class="stats-grid">
+          <article class="stat-card">
+            <span class="stat-value">$128K</span>
+            <span class="stat-label">Raised to date</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-value">42</span>
+            <span class="stat-label">Partner orgs</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-value">2.4M</span>
+            <span class="stat-label">Questions asked</span>
+          </article>
+        </div>
+      </div>
+      <div class="hero-card">
+        <p class="hero-card-title">Last week's impact</p>
+        <ul>
+          <li>12,840 USD donated to climate relief</li>
+          <li>6 new scholarships fully funded</li>
+          <li>98% transparency score maintained</li>
+        </ul>
+        <p class="hero-card-footer">Your next question keeps the momentum going.</p>
+      </div>
+    </section>
+
+    <main class="layout">
+      <section class="chat-panel glass-card">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Live assistant</p>
+            <h2>ChatGPT, redesigned for good.</h2>
+          </div>
+          <p class="hint">Ask anything below. Ad-supported responses keep donations flowing.</p>
+        </div>
+        <div id="chat-log" aria-live="polite"></div>
+        <form id="chat-form">
+          <textarea id="chat-input" placeholder="Ask anything..." required></textarea>
+          <button type="submit" class="primary-btn">Send</button>
+        </form>
+      </section>
+
+      <aside class="sidebar">
+        <div class="card ad-card">
+          <p class="eyebrow">Featured sponsor</p>
+          <h3>Place your mission-aligned ad</h3>
+          <p>High-intent audiences, clear reporting, zero platform fees.</p>
+          <div class="ad-slot">Ad slot (replace with ad network code)</div>
+        </div>
+
+        <div class="card search-card">
+          <p class="eyebrow">Popular searches</p>
+          <h3>Explore vetted resources</h3>
+          <ul id="search-links"></ul>
+        </div>
+
+        <div class="card pledge-card">
+          <p class="eyebrow">Matching pledge</p>
+          <h3>Every dollar is doubled today.</h3>
+          <p>Our partners are matching ad-driven donations for the next 24 hours.</p>
+          <button class="ghost-btn" type="button">View partners</button>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <p>
+        Transparency: 100% of ad profit goes to <a href="#" target="_blank" rel="noopener">Charity Name</a>. Built with
+        OpenAI.
+      </p>
+    </footer>
+  </div>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
+
