@@ -1,30 +1,23 @@
 const chatForm = document.getElementById('chat-form');
 const chatInput = document.getElementById('chat-input');
 const chatLog = document.getElementById('chat-log');
-const PLACEHOLDER_BASE = 'Ask anything';
-const MAX_PLACEHOLDER_DOTS = 3;
+const newChatBtn = document.querySelector('.new-chat-btn');
 const conversation = [];
 let typingIndicator;
-let placeholderDots = 0;
 let placeholderInterval;
+let dotCount = 0;
 
-function setPlaceholderText(dots = placeholderDots) {
-  const suffix = dots > 0 ? '.'.repeat(dots) : '';
-  chatInput.placeholder = `${PLACEHOLDER_BASE}${suffix}`;
+// Animated placeholder
+function animatePlaceholder() {
+  if (document.activeElement === chatInput || chatInput.value.trim().length > 0) {
+    return;
+  }
+  dotCount = (dotCount % 3) + 1;
+  chatInput.placeholder = 'Ask anything' + '.'.repeat(dotCount);
 }
 
-function startPlaceholderPulse() {
-  if (placeholderInterval) return;
-  placeholderInterval = setInterval(() => {
-    const isUserTyping = document.activeElement === chatInput || chatInput.value.trim().length > 0;
-    if (isUserTyping) {
-      setPlaceholderText(MAX_PLACEHOLDER_DOTS);
-      return;
-    }
-    placeholderDots = (placeholderDots + 1) % (MAX_PLACEHOLDER_DOTS + 1);
-    setPlaceholderText();
-  }, 500);
-}
+// Start placeholder animation
+placeholderInterval = setInterval(animatePlaceholder, 500);
 
 chatInput.addEventListener('focus', () => {
   chatInput.placeholder = '';
@@ -32,21 +25,48 @@ chatInput.addEventListener('focus', () => {
 
 chatInput.addEventListener('blur', () => {
   if (!chatInput.value.trim()) {
-    setPlaceholderText();
+    dotCount = 0;
+    chatInput.placeholder = 'Ask anything';
   }
 });
 
-setPlaceholderText(0);
-startPlaceholderPulse();
+// Auto-resize textarea
+chatInput.addEventListener('input', () => {
+  chatInput.style.height = 'auto';
+  chatInput.style.height = Math.min(chatInput.scrollHeight, 200) + 'px';
+});
 
+// New chat button
+if (newChatBtn) {
+  newChatBtn.addEventListener('click', () => {
+    conversation.length = 0;
+    chatLog.innerHTML = `
+      <div class="empty-state">
+        <div class="logo-badge-large">
+          <img src="cclogo.png" alt="Charity Chat" />
+        </div>
+        <h1>How can I help you today?</h1>
+      </div>
+    `;
+  });
+}
+
+// Submit form
 chatForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   const text = chatInput.value.trim();
   if (!text) return;
 
+  // Remove empty state if present
+  const emptyState = chatLog.querySelector('.empty-state');
+  if (emptyState) {
+    emptyState.remove();
+  }
+
   conversation.push({ role: 'user', content: text });
   appendMessage('user', text);
   chatInput.value = '';
+  chatInput.style.height = 'auto';
   setFormDisabled(true);
   showTypingIndicator();
 
@@ -57,6 +77,15 @@ chatForm.addEventListener('submit', async (event) => {
       body: JSON.stringify({ messages: conversation })
     });
     const data = await response.json();
+    
+    if (!response.ok || data.error) {
+      const errorMsg = data.error || `API error: ${response.status}`;
+      console.error('API error:', errorMsg);
+      hideTypingIndicator();
+      appendMessage('bot', `Error: ${errorMsg}`);
+      return;
+    }
+    
     const reply = data.reply ?? 'No response.';
     conversation.push({ role: 'assistant', content: reply });
     hideTypingIndicator();
@@ -64,12 +93,14 @@ chatForm.addEventListener('submit', async (event) => {
   } catch (error) {
     console.error(error);
     hideTypingIndicator();
-    appendMessage('bot', 'Something went wrong. Please try again later.');
+    appendMessage('bot', `Network error: ${error.message}`);
   } finally {
     setFormDisabled(false);
+    chatInput.focus();
   }
 });
 
+// Enter to submit, Shift+Enter for new line
 chatInput.addEventListener('keydown', (event) => {
   if (event.key === 'Enter' && !event.shiftKey) {
     event.preventDefault();
@@ -80,27 +111,46 @@ chatInput.addEventListener('keydown', (event) => {
 function appendMessage(role, text) {
   const wrapper = document.createElement('div');
   wrapper.className = `chat-msg ${role}`;
-  const bubble = document.createElement('span');
-  bubble.textContent = text;
-  wrapper.appendChild(bubble);
+  
+  if (role === 'bot') {
+    const avatar = document.createElement('div');
+    avatar.className = 'msg-avatar';
+    avatar.innerHTML = '<img src="cclogo.png" alt="CC" />';
+    wrapper.appendChild(avatar);
+  }
+  
+  const content = document.createElement('div');
+  content.className = 'msg-content';
+  content.textContent = text;
+  wrapper.appendChild(content);
+  
   chatLog.appendChild(wrapper);
-  chatLog.scrollTop = chatLog.scrollHeight;
+  chatLog.parentElement.scrollTop = chatLog.parentElement.scrollHeight;
 }
 
 function setFormDisabled(isDisabled) {
   chatInput.disabled = isDisabled;
-  chatForm.querySelector('button').disabled = isDisabled;
+  const sendBtn = chatForm.querySelector('button');
+  if (sendBtn) sendBtn.disabled = isDisabled;
 }
 
 function showTypingIndicator() {
   if (typingIndicator) return;
   typingIndicator = document.createElement('div');
   typingIndicator.className = 'chat-msg bot typing';
-  const bubble = document.createElement('span');
-  bubble.textContent = 'Charity Chat is composing...';
-  typingIndicator.appendChild(bubble);
+  
+  const avatar = document.createElement('div');
+  avatar.className = 'msg-avatar';
+  avatar.innerHTML = '<img src="cclogo.png" alt="CC" />';
+  typingIndicator.appendChild(avatar);
+  
+  const content = document.createElement('div');
+  content.className = 'msg-content';
+  content.textContent = 'Thinking...';
+  typingIndicator.appendChild(content);
+  
   chatLog.appendChild(typingIndicator);
-  chatLog.scrollTop = chatLog.scrollHeight;
+  chatLog.parentElement.scrollTop = chatLog.parentElement.scrollHeight;
 }
 
 function hideTypingIndicator() {
@@ -108,5 +158,3 @@ function hideTypingIndicator() {
   typingIndicator.remove();
   typingIndicator = null;
 }
-
-

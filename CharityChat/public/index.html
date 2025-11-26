@@ -8,43 +8,22 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="app-shell">
-    <header class="top-bar">
-      <div class="brand">
-        <div class="logo-badge">
-          <img src="cclogo.png" alt="Charity Chat logo" />
-        </div>
-        <div>
-          <p class="brand-title">Charity Chat</p>
-          <p class="brand-subtitle">ChatGPT but 99% of proceeds go to charity.</p>
-        </div>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <button class="new-chat-btn" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+          New chat
+        </button>
       </div>
-      <div class="actions">
-        <button class="ghost-btn" type="button">Impact report</button>
-        <button class="primary-btn" type="button">Donate now</button>
-      </div>
-    </header>
-
-    <main class="layout">
-      <section class="chat-panel glass-card">
-        <div class="panel-head">
-          <div>
-            <h2>ChatGPT, redesigned for good.</h2>
-          </div>
-          <p class="hint">Ask anything below. Ad-supported responses keep donations flowing.</p>
-        </div>
-        <form id="chat-form">
-          <div class="chat-input-wrapper">
-            <textarea id="chat-input" placeholder="Ask anything..."></textarea>
-            <button type="submit" class="primary-btn">Send</button>
-          </div>
-        </form>
-        <div id="chat-log" aria-live="polite"></div>
-      </section>
-
-      <aside class="sidebar">
-        <div class="card ad-card">
-          <p class="eyebrow">Featured sponsor</p>
+      
+      <div class="sidebar-content">
+        <!-- First ad card -->
+        <div class="ad-card-sidebar">
+          <p class="ad-label">Sponsored</p>
           <div class="ad-slot">
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8608810590998354" crossorigin="anonymous"></script>
             <ins class="adsbygoogle"
@@ -59,15 +38,87 @@
             </script>
           </div>
         </div>
-      </aside>
-    </main>
 
-    <footer>
-      <p>Transparency: 99% of ad profit goes to <a href="#" target="_blank" rel="noopener">Charity Name</a>.</p>
-    </footer>
+        <!-- Second smaller ad card -->
+        <div class="ad-card-sidebar ad-card-small">
+          <p class="ad-label">Sponsored</p>
+          <div class="ad-slot ad-slot-small">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8608810590998354" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+              style="display:block"
+              data-ad-client="ca-pub-8608810590998354"
+              data-ad-slot="1234567890"
+              data-ad-format="auto"
+              data-full-width-responsive="true">
+            </ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+
+        <!-- Chat history -->
+        <div class="chat-history">
+          <p class="history-title">Recent</p>
+          <div class="history-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            <span>Previous conversation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-menu">
+          <div class="logo-badge-small">
+            <img src="cclogo.png" alt="CC" />
+          </div>
+          <div class="user-info">
+            <span class="user-name">Charity Chat</span>
+            <span class="user-tagline">99% to charity</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main chat area -->
+    <main class="main-content">
+      <div class="chat-container">
+        <div id="chat-log" aria-live="polite">
+          <!-- Empty state -->
+          <div class="empty-state">
+            <div class="logo-badge-large">
+              <img src="cclogo.png" alt="Charity Chat" />
+            </div>
+            <p class="charity-tagline">
+              99% of ad revenue from this AI goes straight to <a href="#" target="_blank" rel="noopener">verified charities</a>
+            </p>
+            <h1>How can I help you today?</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input form at bottom -->
+      <div class="input-container">
+        <form id="chat-form">
+          <div class="chat-input-wrapper">
+            <textarea id="chat-input" placeholder="Ask anything" rows="1"></textarea>
+            <button type="submit" class="send-btn" aria-label="Send message">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+        <div class="input-footer">
+          <p>ChatGPT can make mistakes. Check important info. 99% of proceeds support verified charities.</p>
+        </div>
+      </div>
+
+    </main>
   </div>
 
   <script src="app.js" type="module"></script>
 </body>
 </html>
-
