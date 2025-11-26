@@ -4,16 +4,19 @@
   <meta charset="UTF-8" />
   <title>Charity Chat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="app-shell">
     <header class="top-bar">
       <div class="brand">
-        <div class="logo-badge">CC</div>
+        <div class="logo-badge">
+          <img src="cclogo.png" alt="Charity Chat logo" />
+        </div>
         <div>
           <p class="brand-title">Charity Chat</p>
-          <p class="brand-subtitle">Ad-powered impact</p>
+          <p class="brand-subtitle">ChatGPT but 99% of proceeds go to charity.</p>
         </div>
       </div>
       <div class="actions">
@@ -31,18 +34,18 @@
           </div>
           <p class="hint">Ask anything below. Ad-supported responses keep donations flowing.</p>
         </div>
-        <div id="chat-log" aria-live="polite"></div>
         <form id="chat-form">
-          <textarea id="chat-input" placeholder="Ask anything..." required></textarea>
-          <button type="submit" class="primary-btn">Send</button>
+          <div class="chat-input-wrapper">
+            <textarea id="chat-input" placeholder="Ask anything..." required></textarea>
+            <button type="submit" class="primary-btn">Send</button>
+          </div>
         </form>
+        <div id="chat-log" aria-live="polite"></div>
       </section>
 
       <aside class="sidebar">
         <div class="card ad-card">
           <p class="eyebrow">Featured sponsor</p>
-          <h3>Place your mission-aligned ad</h3>
-          <p>High-intent audiences, clear reporting, zero platform fees.</p>
           <div class="ad-slot">Ad slot (replace with ad network code)</div>
         </div>
       </aside>

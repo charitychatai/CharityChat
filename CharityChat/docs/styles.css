@@ -3,17 +3,17 @@
 :root {
   color-scheme: light;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  --bg: #030712;
-  --bg-alt: #0f172a;
-  --surface: rgba(15, 23, 42, 0.75);
-  --surface-strong: rgba(15, 23, 42, 0.9);
+  --bg: #1a0b17;
+  --bg-alt: #2a1021;
+  --surface: rgba(42, 16, 34, 0.78);
+  --surface-strong: rgba(42, 16, 34, 0.92);
   --card: rgba(255, 255, 255, 0.08);
-  --text: #f8fafc;
-  --muted: rgba(248, 250, 252, 0.65);
-  --border: rgba(255, 255, 255, 0.12);
-  --accent: #7c5cfc;
-  --accent-strong: #5f3ff5;
-  --success: #10b981;
+  --text: #fff6fb;
+  --muted: rgba(255, 246, 251, 0.7);
+  --border: rgba(255, 149, 197, 0.2);
+  --accent: #ff5fa2;
+  --accent-strong: #ff2f74;
+  --success: #ffcee3;
 }
 
 * {
@@ -23,7 +23,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(circle at 10% -20%, #3646ff 0%, #0f172a 35%, #030712 70%);
+  background: radial-gradient(circle at 10% -20%, #ff8ed8 0%, #2a1021 40%, #1a0b17 70%);
   color: var(--text);
   font-family: inherit;
 }
@@ -66,11 +66,14 @@ a:hover {
   width: 44px;
   height: 44px;
   border-radius: 14px;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  color: #fff;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  overflow: hidden;
+  box-shadow: 0 0 18px rgba(255, 95, 162, 0.55), 0 10px 30px rgba(255, 47, 116, 0.2);
+}
+
+.logo-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .brand-title {
@@ -105,7 +108,7 @@ button {
 .primary-btn {
   color: #fff;
   background: linear-gradient(120deg, var(--accent), var(--accent-strong));
-  box-shadow: 0 10px 30px rgba(92, 63, 245, 0.3);
+  box-shadow: 0 10px 30px rgba(255, 47, 116, 0.35);
 }
 
 .ghost-btn {
@@ -121,7 +124,7 @@ button:disabled {
 
 button:not(:disabled):hover {
   transform: translateY(-1px);
-  box-shadow: 0 12px 26px rgba(92, 63, 245, 0.35);
+  box-shadow: 0 12px 26px rgba(255, 47, 116, 0.45);
 }
 
 .hero {
@@ -242,7 +245,12 @@ button:not(:disabled):hover {
   gap: 1rem;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  padding: 0.2rem 0 0.4rem;
+}
+
+.chat-panel {
+  padding: 1rem 1.2rem 1.25rem;
 }
 
 .eyebrow {
@@ -288,10 +296,16 @@ button:not(:disabled):hover {
   line-height: 1.4;
 }
 
+.chat-msg.typing span {
+  opacity: 0.7;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.04);
+}
+
 .chat-msg.user span {
   background: linear-gradient(135deg, var(--accent), var(--accent-strong));
   color: #fff;
-  box-shadow: 0 10px 24px rgba(92, 63, 245, 0.35);
+  box-shadow: 0 10px 24px rgba(255, 47, 116, 0.35);
 }
 
 .chat-msg.bot span {
@@ -300,30 +314,46 @@ button:not(:disabled):hover {
 }
 
 #chat-form {
-  display: flex;
-  gap: 0.75rem;
   margin-top: 1.2rem;
-  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.chat-input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.35rem 0.8rem 0.35rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 149, 197, 0.35);
+  background: rgba(26, 11, 23, 0.85);
+  box-shadow: 0 12px 30px rgba(255, 47, 116, 0.35);
 }
 
 #chat-form button {
-  padding: 0.55rem 2.5rem;
-  border-radius: 14px;
-  min-width: 150px;
-  align-self: flex-start;
+  padding: 0.4rem 1.8rem;
+  border-radius: 999px;
+  min-width: 0;
 }
 
 #chat-input {
   flex: 1;
-  min-height: 110px;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: var(--surface-strong);
+  min-height: 44px;
+  max-height: 44px;
+  border: none;
+  background: transparent;
   color: var(--text);
-  padding: 1rem;
-  resize: vertical;
+  padding: 0 0.75rem 0 0;
+  resize: none;
   font-size: 1rem;
   font-family: inherit;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+#chat-input:focus {
+  outline: none;
 }
 
 #chat-input::placeholder {
@@ -354,7 +384,7 @@ button:not(:disabled):hover {
 }
 
 .ad-card {
-  background: linear-gradient(135deg, rgba(124, 92, 252, 0.15), rgba(5, 7, 18, 0.9));
+  background: linear-gradient(135deg, rgba(255, 95, 162, 0.2), rgba(58, 10, 33, 0.92));
 }
 
 .ad-slot {
@@ -393,7 +423,7 @@ button:not(:disabled):hover {
 }
 
 .pledge-card {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(4, 120, 87, 0.45));
+  background: linear-gradient(135deg, rgba(255, 95, 162, 0.18), rgba(120, 18, 74, 0.55));
 }
 
 footer {
@@ -429,12 +459,16 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  #chat-form {
+  .chat-input-wrapper {
     flex-direction: column;
+    align-items: stretch;
+    border-radius: 24px;
+    gap: 0.5rem;
   }
 
   #chat-input {
-    min-height: 140px;
+    min-height: 90px;
+    max-height: 200px;
   }
 
   #chat-form button {

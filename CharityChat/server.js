@@ -8,10 +8,24 @@ app.use(express.json());
 
 app.post('/chat', async (req, res) => {
   try {
-    const { message } = req.body ?? {};
-    if (!message) {
-      return res.status(400).json({ error: 'Message required.' });
+    const { messages } = req.body ?? {};
+    if (!Array.isArray(messages) || messages.length === 0) {
+      return res.status(400).json({ error: 'messages array is required.' });
     }
+
+    const trimmedHistory = messages
+      .filter(
+        (msg) =>
+          msg &&
+          typeof msg.role === 'string' &&
+          typeof msg.content === 'string' &&
+          ['user', 'assistant'].includes(msg.role)
+      )
+      .map((msg) => ({
+        role: msg.role,
+        content: msg.content.slice(0, 2000)
+      }))
+      .slice(-20);
 
     const apiRes = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -22,8 +36,12 @@ app.post('/chat', async (req, res) => {
       body: JSON.stringify({
         model: 'gpt-4o-mini',
         messages: [
-          { role: 'system', content: 'You are a friendly assistant for a charity-funded site.' },
-          { role: 'user', content: message }
+          {
+            role: 'system',
+            content:
+              'You are Charity Chat, a concise but warm AI assistant whose answers are funded by ads and donations. Always keep responses factual and encouraging.'
+          },
+          ...trimmedHistory
         ]
       })
     });
