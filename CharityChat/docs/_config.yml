@@ -1,5 +1,5 @@
 # Disable Jekyll processing and theme
-theme: null
+theme: none
 plugins: []
 safe: true
 
