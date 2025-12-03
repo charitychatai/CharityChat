@@ -1,5 +1,11 @@
 {
   "buildCommand": null,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
   "functions": {
     "api/**/*.js": {
       "memory": 1024,
