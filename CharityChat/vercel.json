@@ -1,7 +1,6 @@
 {
-  "public": true,
-  "cleanUrls": true,
-  "trailingSlash": false,
+  "buildCommand": "echo 'Static site - no build required'",
+  "outputDirectory": ".",
   "functions": {
     "api/**/*.js": {
       "memory": 1024,

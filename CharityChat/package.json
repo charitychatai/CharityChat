@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo 'No build needed - static files'"
   },
   "dependencies": {
     "express": "^4.19.2",
