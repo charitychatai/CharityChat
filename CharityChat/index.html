@@ -165,9 +165,21 @@
 
   <script src="app.js" type="module"></script>
   <script>
-    ezstandalone.cmd.push(function () {
-      ezstandalone.showAds(101, 102, 103);
-    });
+    // Ensure Ezoic scripts are loaded before calling showAds
+    if (typeof ezstandalone !== 'undefined') {
+      ezstandalone.cmd.push(function () {
+        ezstandalone.showAds(101, 102, 103);
+      });
+    } else {
+      // Fallback if ezstandalone isn't loaded yet
+      window.addEventListener('load', function() {
+        if (typeof ezstandalone !== 'undefined') {
+          ezstandalone.cmd.push(function () {
+            ezstandalone.showAds(101, 102, 103);
+          });
+        }
+      });
+    }
   </script>
 </body>
 </html>
