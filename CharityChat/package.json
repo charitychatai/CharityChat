@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "build": "echo 'No build needed - static files'"
+    "build": "bash build.sh",
+    "vercel-build": "bash build.sh"
   },
   "dependencies": {
     "express": "^4.19.2",
