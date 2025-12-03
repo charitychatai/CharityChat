@@ -2,7 +2,7 @@
   "buildCommand": null,
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
   ],
