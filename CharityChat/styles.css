@@ -325,6 +325,7 @@ body {
   outline: none;
   line-height: 1.5;
   padding: 0;
+  margin-top: -4px;
   display: flex;
   align-items: center;
 }
@@ -476,7 +477,7 @@ body {
   letter-spacing: 0.05em;
   margin-bottom: 0.5rem;
   display: block;
-}
+  }
 
 .ad-card-mobile .ad-slot {
   min-height: 120px;
