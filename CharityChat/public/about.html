@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About - Charity Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .about-container {
+      max-width: 48rem;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .about-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .about-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .about-header p {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .about-section {
+      margin-bottom: 3rem;
+    }
+
+    .about-section h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .about-section p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .charities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .charity-card {
+      padding: 1.5rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .charity-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 95, 162, 0.15);
+    }
+
+    .charity-card h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .charity-card p {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+      margin-bottom: 2rem;
+    }
+
+    .back-link:hover {
+      background: var(--accent-hover);
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="about-container">
+    <a href="/" class="back-link">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Back to Chat
+    </a>
+
+    <div class="about-header">
+      <h1>About Charity Chat</h1>
+      <p>A simple concept: Turn all your AI searching into good.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>How It Works</h2>
+      <p>
+        Every time you ask a question, Charity Chat displays carefully curated advertisements alongside your ChatGPT-powered response. 
+        <span class="highlight">99% of all ad revenue</span> goes directly to verified, high-impact charities—no middlemen, no overhead.
+      </p>
+      <p>
+        Your curiosity fuels lasting change. Simply by using Charity Chat for your daily questions, you're contributing to causes that matter—at no cost to you.
+      </p>
+    </div>
+
+    <div class="about-section">
+      <h2>Our Partner Charities</h2>
+      <p>
+        We rotate donations monthly among the world's most effective charities, as rated by independent evaluators like GiveWell and Charity Navigator. 
+        Here are the top 10 organizations in our rotation:
+      </p>
+
+      <div class="charities-grid">
+        <div class="charity-card">
+          <h3>Against Malaria Foundation</h3>
+          <p>Prevents malaria by distributing long-lasting insecticide-treated nets to vulnerable populations in Africa.</p>
+        </div>
+
+        <div class="charity-card">
+          <h3>GiveDirectly</h3>
+          <p>Provides direct cash transfers to people living in extreme poverty, empowering them to make their own choices.</p>
+        </div>
+
+        <div class="charity-card">
+          <h3>Helen Keller International</h3>
+          <p>Delivers vitamin A supplementation to prevent childhood blindness and reduce mortality in developing countries.</p>
+        </div>
+
+        <div class="charity-card">
+          <h3>Malaria Consortium</h3>
+          <p>Provides seasonal malaria chemoprevention to children in sub-Saharan Africa, preventing millions of cases annually.</p>
+        </div>
+
+        <div class="charity-card">
+          <h3>New Incentives</h3>
+          <p>Uses conditional cash transfers to increase routine immunization rates in Nigeria, saving children's lives.</p>
+        </div>
+
+        <div class="charity-card">
+          <h3>SCI Foundation</h3>
+          <p>Treats and prevents parasitic worm infections in school-age children across Africa and Yemen.</p>
+        </div>
+
+        <div class="charity-card">
+          <h3>The END Fund</h3>
+          <p>Works to control and eliminate neglected tropical diseases that affect over 1 billion people worldwide.</p>
+        </div>
+
+        <div class="charity-card">
+          <h3>Evidence Action</h3>
+          <p>Scales proven interventions like safe water chlorination and deworming programs in developing countries.</p>
+        </div>
+
+        <div class="charity-card">
+          <h3>Sightsavers</h3>
+          <p>Prevents blindness and advocates for the rights of people with visual impairments in low-income countries.</p>
+        </div>
+
+        <div class="charity-card">
+          <h3>Living Goods</h3>
+          <p>Trains community health workers to deliver life-saving products and services door-to-door in East Africa.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <h2>Transparency & Accountability</h2>
+      <p>
+        We publish quarterly impact reports showing exactly how much revenue was generated and which charities received funding. 
+        All transactions are independently audited to ensure 99% of ad profit reaches the intended recipients.
+      </p>
+      <p>
+        Have questions? <a href="mailto:hello@quantumqruise.com" style="color: var(--accent);">Get in touch</a> anytime.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+

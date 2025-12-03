@@ -93,6 +93,8 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s;
+  text-decoration: none;
+  color: inherit;
 }
 
 .user-menu:hover {
@@ -212,6 +214,14 @@ body {
   text-align: center;
 }
 
+.seo-text {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  text-align: center;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
 /* Chat messages */
 .chat-msg {
   margin-bottom: 1.5rem;
@@ -314,7 +324,9 @@ body {
   resize: none;
   outline: none;
   line-height: 1.5;
-  padding-top: 0.25rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 #chat-input::placeholder {
@@ -440,21 +452,51 @@ body {
   text-overflow: ellipsis;
 }
 
+/* ===== MOBILE ADS ===== */
+.mobile-ads {
+  display: none; /* Hidden on desktop */
+  padding: 1rem;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-color);
+}
+
+.ad-card-mobile {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0.75rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.ad-card-mobile .ad-label {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  display: block;
+  }
+
+.ad-card-mobile .ad-slot {
+  min-height: 120px;
+  background: var(--bg-primary);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .sidebar {
-    position: fixed;
-    left: -260px;
-    top: 0;
-    height: 100vh;
-    z-index: 1000;
-    transition: left 0.3s;
+    display: none; /* Hide sidebar completely on mobile */
   }
 
-  .sidebar.open {
-    left: 0;
+  .mobile-ads {
+    display: block; /* Show mobile ads */
   }
-
 
   #chat-log {
     padding-bottom: 2rem;

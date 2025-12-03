@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.quantumqruise.com/sitemap.xml
+
+# Optimize crawling for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+

@@ -1,10 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Ezoic Privacy Scripts (must load first) -->
+  <script src="https://cmp.gatekeeperconsent.com/min.js" data-cfasync="false"></script>
+  <script src="https://the.gatekeeperconsent.com/cmp.min.js" data-cfasync="false"></script>
+  
+  <!-- Ezoic Header Script -->
+  <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+  <script>
+    window.ezstandalone = window.ezstandalone || {};
+    ezstandalone.cmd = ezstandalone.cmd || [];
+  </script>
+
   <meta charset="UTF-8" />
-  <title>Charity Chat</title>
+  <title>Charity Chat - ChatGPT for Good | AI That Helps Humanity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/png" href="cclogo-circle.png" />
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Better ChatGPT that donates 99% of ad revenue to verified charities. Use AI for good - every question you ask funds real causes helping humanity. Free ChatGPT alternative supporting global health, poverty relief, and education." />
+  <meta name="keywords" content="ChatGPT for charity, better ChatGPT, AI for good, ChatGPT alternative, free ChatGPT, AI that helps humanity, donate to charity, ethical AI, ChatGPT with purpose, AI donations, charity AI chatbot" />
+  <meta name="author" content="Charity Chat" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.quantumqruise.com/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.quantumqruise.com/" />
+  <meta property="og:title" content="Charity Chat - ChatGPT for Good | 99% to Charity" />
+  <meta property="og:description" content="Better ChatGPT that donates 99% of ad revenue to verified charities. Every question helps humanity. Free AI chat supporting global health, poverty relief, and education." />
+  <meta property="og:image" content="https://www.quantumqruise.com/cclogo.png" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://www.quantumqruise.com/" />
+  <meta property="twitter:title" content="Charity Chat - ChatGPT for Good | 99% to Charity" />
+  <meta property="twitter:description" content="Better ChatGPT that donates 99% of ad revenue to verified charities. Every question helps humanity." />
+  <meta property="twitter:image" content="https://www.quantumqruise.com/cclogo.png" />
+  
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Charity Chat",
+    "alternateName": "ChatGPT for Charity",
+    "url": "https://www.quantumqruise.com",
+    "description": "Better ChatGPT alternative that donates 99% of ad revenue to verified charities. AI chatbot for good that helps humanity through donations to global health, poverty relief, and education causes.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "ratingCount": "1"
+    }
+  }
+  </script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -21,56 +77,33 @@
       </div>
       
       <div class="sidebar-content">
-        <!-- First ad card -->
+        <!-- First Ezoic ad placeholder -->
         <div class="ad-card-sidebar">
           <p class="ad-label">Sponsored</p>
           <div class="ad-slot">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8608810590998354" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-              style="display:block"
-              data-ad-client="ca-pub-8608810590998354"
-              data-ad-slot="1234567890"
-              data-ad-format="auto"
-              data-full-width-responsive="true">
-            </ins>
-            <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <div id="ezoic-pub-ad-placeholder-101"></div>
           </div>
         </div>
 
-        <!-- Second smaller ad card -->
+        <!-- Second smaller Ezoic ad placeholder -->
         <div class="ad-card-sidebar ad-card-small">
           <p class="ad-label">Sponsored</p>
           <div class="ad-slot ad-slot-small">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8608810590998354" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-              style="display:block"
-              data-ad-client="ca-pub-8608810590998354"
-              data-ad-slot="1234567890"
-              data-ad-format="auto"
-              data-full-width-responsive="true">
-            </ins>
-            <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <div id="ezoic-pub-ad-placeholder-102"></div>
           </div>
         </div>
 
         <!-- Chat history -->
         <div class="chat-history">
           <p class="history-title">Recent</p>
-          <div class="history-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-            <span>Previous conversation</span>
+          <div id="history-list">
+            <!-- Chat history items will be added here dynamically -->
           </div>
         </div>
       </div>
 
       <div class="sidebar-footer">
-        <div class="user-menu">
+        <a href="about.html" target="_blank" rel="noopener" class="user-menu">
           <div class="logo-badge-small">
             <img src="cclogo.png" alt="CC" />
           </div>
@@ -78,7 +111,7 @@
             <span class="user-name">Charity Chat</span>
             <span class="user-tagline">99% to charity</span>
           </div>
-        </div>
+        </a>
       </div>
     </aside>
 
@@ -92,9 +125,20 @@
               <img src="cclogo.png" alt="Charity Chat" />
             </div>
             <p class="charity-tagline">
-              99% of ad revenue from this AI goes straight to <a href="#" target="_blank" rel="noopener">verified charities</a>
+              99% of ad revenue from this AI goes straight to <a href="about.html" target="_blank" rel="noopener">verified charities</a>
             </p>
             <h1>How can I help you today?</h1>
+            <p class="seo-text">ChatGPT for good. Your questions help humanity.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile ads (visible only on mobile) -->
+      <div class="mobile-ads">
+        <div class="ad-card-mobile">
+          <p class="ad-label">Sponsored</p>
+          <div class="ad-slot">
+            <div id="ezoic-pub-ad-placeholder-103"></div>
           </div>
         </div>
       </div>
@@ -114,11 +158,16 @@
         <div class="input-footer">
           <p>ChatGPT can make mistakes. Check important info. 99% of proceeds support verified charities.</p>
         </div>
-      </div>
+        </div>
 
     </main>
   </div>
 
   <script src="app.js" type="module"></script>
+  <script>
+    ezstandalone.cmd.push(function () {
+      ezstandalone.showAds(101, 102, 103);
+    });
+  </script>
 </body>
 </html>

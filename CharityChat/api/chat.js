@@ -1,19 +1,20 @@
 export default async function handler(req, res) {
-  // Set CORS headers to allow requests from your domain
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
   try {
+    // Set CORS and JSON headers first
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Content-Type', 'application/json');
+
+    if (req.method === 'OPTIONS') {
+      return res.status(200).end();
+    }
+
+    if (req.method !== 'POST') {
+      return res.status(405).json({ error: 'Method not allowed' });
+    }
+
     const { messages } = req.body ?? {};
     if (!Array.isArray(messages) || messages.length === 0) {
       return res.status(400).json({ error: 'messages array is required.' });
@@ -55,14 +56,18 @@ export default async function handler(req, res) {
     if (!apiRes.ok) {
       const errBody = await apiRes.text();
       console.error('OpenAI error:', errBody);
-      return res.status(502).json({ error: 'Upstream error contacting OpenAI.' });
+      return res.status(502).json({ error: 'OpenAI API error', details: errBody.substring(0, 200) });
     }
 
     const data = await apiRes.json();
-    res.json({ reply: data.choices?.[0]?.message?.content ?? 'No reply.' });
+    return res.status(200).json({ reply: data.choices?.[0]?.message?.content ?? 'No reply.' });
+    
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to reach OpenAI.' });
+    console.error('API Handler Error:', error);
+    return res.status(500).json({ 
+      error: 'Internal server error', 
+      details: error?.message || 'Unknown error'
+    });
   }
 }
 
