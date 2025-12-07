@@ -2,3 +2,5 @@
 ezoic.com, pub-8608810590998354, DIRECT
 google.com, pub-8608810590998354, RESELLER, f08c47fec0942fa0
 
+# Google AdSense
+google.com, pub-8608810590998354, DIRECT, f08c47fec0942fa0
