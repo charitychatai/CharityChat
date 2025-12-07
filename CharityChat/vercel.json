@@ -1,5 +1,12 @@
 {
+  "buildCommand": "",
   "outputDirectory": "public",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/$1"
+    }
+  ],
   "functions": {
     "api/**/*.js": {
       "memory": 1024,
