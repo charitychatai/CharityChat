@@ -174,15 +174,6 @@ body {
   padding: 2rem;
 }
 
-@media (max-width: 768px) {
-  .empty-state {
-    padding: 1rem 1rem 0.5rem;
-    gap: 1rem;
-    justify-content: flex-start;
-    padding-top: 0.5rem;
-  }
-}
-
 .logo-badge-large {
   width: 64px;
   height: 64px;
