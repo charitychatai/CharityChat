@@ -5,17 +5,6 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8608810590998354"
      crossorigin="anonymous"></script>
-  
-  <!-- Ezoic Privacy Scripts (must load first) -->
-  <script src="https://cmp.gatekeeperconsent.com/min.js" data-cfasync="false"></script>
-  <script src="https://the.gatekeeperconsent.com/cmp.min.js" data-cfasync="false"></script>
-  
-  <!-- Ezoic Header Script -->
-  <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
-  <script>
-    window.ezstandalone = window.ezstandalone || {};
-    ezstandalone.cmd = ezstandalone.cmd || [];
-  </script>
   <title>Charity Chat - ChatGPT for Good | AI That Helps Humanity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
@@ -82,22 +71,6 @@
       </div>
       
       <div class="sidebar-content">
-        <!-- First Ezoic ad placeholder -->
-        <div class="ad-card-sidebar">
-          <p class="ad-label">Sponsored</p>
-          <div class="ad-slot">
-            <div id="ezoic-pub-ad-placeholder-101"></div>
-          </div>
-        </div>
-
-        <!-- Second smaller Ezoic ad placeholder -->
-        <div class="ad-card-sidebar ad-card-small">
-          <p class="ad-label">Sponsored</p>
-          <div class="ad-slot ad-slot-small">
-            <div id="ezoic-pub-ad-placeholder-102"></div>
-          </div>
-        </div>
-
         <!-- Chat history -->
         <div class="chat-history">
           <p class="history-title">Recent</p>
@@ -138,15 +111,6 @@
         </div>
       </div>
 
-      <!-- Mobile ads (visible only on mobile) -->
-      <div class="mobile-ads">
-        <div class="ad-card-mobile">
-          <p class="ad-label">Sponsored</p>
-          <div class="ad-slot">
-            <div id="ezoic-pub-ad-placeholder-103"></div>
-          </div>
-        </div>
-      </div>
 
       <!-- Input form at bottom -->
       <div class="input-container">
@@ -169,23 +133,6 @@
   </div>
 
   <script src="app.js" type="module"></script>
-  <script>
-    // Ensure Ezoic scripts are loaded before calling showAds
-    if (typeof ezstandalone !== 'undefined') {
-      ezstandalone.cmd.push(function () {
-        ezstandalone.showAds(101, 102, 103);
-      });
-    } else {
-      // Fallback if ezstandalone isn't loaded yet
-      window.addEventListener('load', function() {
-        if (typeof ezstandalone !== 'undefined') {
-          ezstandalone.cmd.push(function () {
-            ezstandalone.showAds(101, 102, 103);
-          });
-        }
-      });
-    }
-  </script>
 </body>
 </html>
 <!-- Test deployment -->
